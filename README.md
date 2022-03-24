@@ -23,7 +23,7 @@ As Canada progresses towards the national goal of 25% of terrestrial area protec
 
 ## Study Area
 
-The province of British Columbia, Canada, covers 94.4 million ha, of which approximately 64% is forested [@bcministryofforestsBritishColumbiaForests2003], and encapsulates a wide variety of biomes and ecosystems. This diversity of ecosystems is in part due to the large area as well as variations in topography and climate. The existing Biogeoclimatic Ecosystem Classification (BEC) system disaggregates BC ecosystems into zones [@pojarBiogeoclimaticEcosystemClassification1987]. The broadest classification delineates 16 zones, which are further broken down into subzones, variants, and phases based on microclimate, precipitation, and topography [@meidingerEcosystemsBritishColumbia1991; @pojarBiogeoclimaticEcosystemClassification1987]. As a result, BEC zones vary widely in size (ranging from 0.25 million ha to 17.5 million ha), and in number of subzones (from 1 to 43; see @tab:bec-table).
+The province of British Columbia, Canada, covers 94.4 million ha, of which approximately 64% is forested [@bcministryofforestsBritishColumbiaForests2003], and encapsulates a wide variety of biomes and ecosystems. This diversity of ecosystems is in part due to the large area as well as variations in topography and climate. The existing Biogeoclimatic Ecosystem Classification (BEC) system disaggregates BC ecosystems into zones [@pojarBiogeoclimaticEcosystemClassification1987]. The broadest classification delineates 16 zones, which are further broken down into subzones, variants, and phases based on microclimate, precipitation, and topography [@meidingerEcosystemsBritishColumbia1991; @pojarBiogeoclimaticEcosystemClassification1987]. As a result, BEC zones vary widely in size (ranging from 0.25 million ha to 17.5 million ha), and in number of subzones (from 1 to 43; see @tbl:bec-table).
 
 | Zone        | Zone Name                                | # of Subzones | Area (ha)         | % Protected  |
 |-------------|------------------------------------------|---------------|-------------------|--------------|
@@ -124,236 +124,25 @@ Overall, the burned area of forested cells is similar between PA (2.5% overall) 
 
 Forest structural attributes vary between PA and UA in BC (@fig:structure-3d-scatter). The largest differences between PA and UA are found in canopy structure in the Coastal Douglas-fir BEC zone, with the protected area having much higher canopy structure values. As shown in @fig:t-test-plot, forests are commonly significantly different when comparing PA vs UA across all attributes. When examining the forests on an BEC zone level, only one BEC zone has a \>5% difference in vertical forest structure (co-efficient of variation in vegetation returns), six BEC zones have \>5% difference in canopy cover, and five BEC zones have a \>5% difference in canopy height. Ponderosa pine has large differences in canopy cover and canopy height (\>5%), but minor differences in elevation covariance (only 0.25%; @tbl:vector-table). PA in the Ponderosa Pine, Interior Mountain Heather Alpine, and Coastal Douglas-fir have more aboveground biomass than in UA in corresponding areas (@fig:structure-3d-scatter).
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-0pky">    <br>Zone    </th>
-    <th class="tg-0pky">    <br>Elevation Covariance    </th>
-    <th class="tg-0pky"></th>
-    <th class="tg-0pky"></th>
-    <th class="tg-0pky">    <br>Canopy Cover (%)    </th>
-    <th class="tg-0pky"></th>
-    <th class="tg-0pky"></th>
-    <th class="tg-0pky">    <br>Canopy Height (m)    </th>
-    <th class="tg-0pky"></th>
-    <th class="tg-0pky"></th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky">    <br>PA    </td>
-    <td class="tg-0pky">    <br>UA    </td>
-    <td class="tg-0pky">    <br>% Difference    </td>
-    <td class="tg-0pky">    <br>PA    </td>
-    <td class="tg-0pky">    <br>UA    </td>
-    <td class="tg-0pky">    <br>% Difference    </td>
-    <td class="tg-0pky">    <br>PA    </td>
-    <td class="tg-0pky">    <br>UA    </td>
-    <td class="tg-0pky">    <br>% Difference    </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>BAFA   </td>
-    <td class="tg-0pky">   <br>0.39   </td>
-    <td class="tg-0pky">   <br>0.39   </td>
-    <td class="tg-0pky">   <br>0.01%   </td>
-    <td class="tg-0pky">   <br>46.94%   </td>
-    <td class="tg-0pky">   <br>48.47%   </td>
-    <td class="tg-0pky">   <br>3.17%   </td>
-    <td class="tg-0pky">   <br>14.03   </td>
-    <td class="tg-0pky">   <br>13.11   </td>
-    <td class="tg-0pky">   <br>-7%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>BG   </td>
-    <td class="tg-0pky">   <br>0.38   </td>
-    <td class="tg-0pky">   <br>0.38   </td>
-    <td class="tg-0pky">   <br>-1.41%   </td>
-    <td class="tg-0pky">   <br>61.8%   </td>
-    <td class="tg-0pky">   <br>58.71%   </td>
-    <td class="tg-0pky">   <br>-5.26%   </td>
-    <td class="tg-0pky">   <br>23.00   </td>
-    <td class="tg-0pky">   <br>21.58   </td>
-    <td class="tg-0pky">   <br>-6.59%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>BWBS   </td>
-    <td class="tg-0pky">   <br>0.37   </td>
-    <td class="tg-0pky">   <br>0.38   </td>
-    <td class="tg-0pky">   <br>2.62%   </td>
-    <td class="tg-0pky">   <br>67.18%   </td>
-    <td class="tg-0pky">   <br>64.72%   </td>
-    <td class="tg-0pky">   <br>-3.8%   </td>
-    <td class="tg-0pky">   <br>15.83   </td>
-    <td class="tg-0pky">   <br>15.69   </td>
-    <td class="tg-0pky">   <br>-0.9%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>CDF   </td>
-    <td class="tg-0pky">   <br>0.31   </td>
-    <td class="tg-0pky">   <br>0.33   </td>
-    <td class="tg-0pky">   <br>6.35%   </td>
-    <td class="tg-0pky">   <br>89.38%   </td>
-    <td class="tg-0pky">   <br>83.69%   </td>
-    <td class="tg-0pky">   <br>-6.79%   </td>
-    <td class="tg-0pky">   <br>27.35   </td>
-    <td class="tg-0pky">   <br>26.58   </td>
-    <td class="tg-0pky">   <br>-2.89%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>CMA   </td>
-    <td class="tg-0pky">   <br>0.38   </td>
-    <td class="tg-0pky">   <br>0.39   </td>
-    <td class="tg-0pky">   <br>1.63%   </td>
-    <td class="tg-0pky">   <br>62.65%   </td>
-    <td class="tg-0pky">   <br>64.01%   </td>
-    <td class="tg-0pky">   <br>2.13%   </td>
-    <td class="tg-0pky">   <br>19.91   </td>
-    <td class="tg-0pky">   <br>20.01   </td>
-    <td class="tg-0pky">   <br>0.48%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>CWH   </td>
-    <td class="tg-0pky">   <br>0.34   </td>
-    <td class="tg-0pky">   <br>0.33   </td>
-    <td class="tg-0pky">   <br>-3.83%   </td>
-    <td class="tg-0pky">   <br>83.94%   </td>
-    <td class="tg-0pky">   <br>85.26%   </td>
-    <td class="tg-0pky">   <br>1.55%   </td>
-    <td class="tg-0pky">   <br>21.58   </td>
-    <td class="tg-0pky">   <br>22.34   </td>
-    <td class="tg-0pky">   <br>3.4%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>ESSF   </td>
-    <td class="tg-0pky">   <br>0.37   </td>
-    <td class="tg-0pky">   <br>0.37   </td>
-    <td class="tg-0pky">   <br>0.34%   </td>
-    <td class="tg-0pky">   <br>61.7%   </td>
-    <td class="tg-0pky">   <br>64.97%   </td>
-    <td class="tg-0pky">   <br>5.04%   </td>
-    <td class="tg-0pky">   <br>18.90   </td>
-    <td class="tg-0pky">   <br>18.91   </td>
-    <td class="tg-0pky">   <br>0.07%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>ICH   </td>
-    <td class="tg-0pky">   <br>0.36   </td>
-    <td class="tg-0pky">   <br>0.36   </td>
-    <td class="tg-0pky">   <br>-1.75%   </td>
-    <td class="tg-0pky">   <br>81.24%   </td>
-    <td class="tg-0pky">   <br>83.52%   </td>
-    <td class="tg-0pky">   <br>2.73%   </td>
-    <td class="tg-0pky">   <br>22.39   </td>
-    <td class="tg-0pky">   <br>22.18   </td>
-    <td class="tg-0pky">   <br>-0.98%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>IDF   </td>
-    <td class="tg-0pky">   <br>0.36   </td>
-    <td class="tg-0pky">   <br>0.36   </td>
-    <td class="tg-0pky">   <br>-0.3%   </td>
-    <td class="tg-0pky">   <br>67.42%   </td>
-    <td class="tg-0pky">   <br>67.9%   </td>
-    <td class="tg-0pky">   <br>0.71%   </td>
-    <td class="tg-0pky">   <br>21.98   </td>
-    <td class="tg-0pky">   <br>22.49   </td>
-    <td class="tg-0pky">   <br>2.29%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>IMA   </td>
-    <td class="tg-0pky">   <br>0.38   </td>
-    <td class="tg-0pky">   <br>0.36   </td>
-    <td class="tg-0pky">   <br>-3.72%   </td>
-    <td class="tg-0pky">   <br>68.17%   </td>
-    <td class="tg-0pky">   <br>62.07%   </td>
-    <td class="tg-0pky">   <br>-9.83%   </td>
-    <td class="tg-0pky">   <br>22.53   </td>
-    <td class="tg-0pky">   <br>21.06   </td>
-    <td class="tg-0pky">   <br>-6.98%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>MH   </td>
-    <td class="tg-0pky">   <br>0.36   </td>
-    <td class="tg-0pky">   <br>0.36   </td>
-    <td class="tg-0pky">   <br>0.25%   </td>
-    <td class="tg-0pky">   <br>76.87%   </td>
-    <td class="tg-0pky">   <br>77.85%   </td>
-    <td class="tg-0pky">   <br>1.26%   </td>
-    <td class="tg-0pky">   <br>19.42   </td>
-    <td class="tg-0pky">   <br>18.31   </td>
-    <td class="tg-0pky">   <br>-6.07%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>MS   </td>
-    <td class="tg-0pky">   <br>0.35   </td>
-    <td class="tg-0pky">   <br>0.35   </td>
-    <td class="tg-0pky">   <br>0.31%   </td>
-    <td class="tg-0pky">   <br>57.99%   </td>
-    <td class="tg-0pky">   <br>60.41%   </td>
-    <td class="tg-0pky">   <br>4.01%   </td>
-    <td class="tg-0pky">   <br>20.64   </td>
-    <td class="tg-0pky">   <br>20.86   </td>
-    <td class="tg-0pky">   <br>1.04%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>PP   </td>
-    <td class="tg-0pky">   <br>0.36   </td>
-    <td class="tg-0pky">   <br>0.37   </td>
-    <td class="tg-0pky">   <br>0.25%   </td>
-    <td class="tg-0pky">   <br>57.92%   </td>
-    <td class="tg-0pky">   <br>48.93%   </td>
-    <td class="tg-0pky">   <br>-18.36%   </td>
-    <td class="tg-0pky">   <br>19.88   </td>
-    <td class="tg-0pky">   <br>18.03   </td>
-    <td class="tg-0pky">   <br>-10.24%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>SBPS   </td>
-    <td class="tg-0pky">   <br>0.36   </td>
-    <td class="tg-0pky">   <br>0.35   </td>
-    <td class="tg-0pky">   <br>-1.97%   </td>
-    <td class="tg-0pky">   <br>32.98%   </td>
-    <td class="tg-0pky">   <br>34.63%   </td>
-    <td class="tg-0pky">   <br>4.76%   </td>
-    <td class="tg-0pky">   <br>18.00   </td>
-    <td class="tg-0pky">   <br>18.70   </td>
-    <td class="tg-0pky">   <br>3.75%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>SBS   </td>
-    <td class="tg-0pky">   <br>0.37   </td>
-    <td class="tg-0pky">   <br>0.37   </td>
-    <td class="tg-0pky">   <br>-0.4%   </td>
-    <td class="tg-0pky">   <br>62.24%   </td>
-    <td class="tg-0pky">   <br>67.25%   </td>
-    <td class="tg-0pky">   <br>7.45%   </td>
-    <td class="tg-0pky">   <br>18.51   </td>
-    <td class="tg-0pky">   <br>18.67   </td>
-    <td class="tg-0pky">   <br>0.82%   </td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">   <br>SWB   </td>
-    <td class="tg-0pky">   <br>0.39   </td>
-    <td class="tg-0pky">   <br>0.39   </td>
-    <td class="tg-0pky">   <br>-1.22%   </td>
-    <td class="tg-0pky">   <br>56.67%   </td>
-    <td class="tg-0pky">   <br>57.71%   </td>
-    <td class="tg-0pky">   <br>1.8%   </td>
-    <td class="tg-0pky">   <br>13.78   </td>
-    <td class="tg-0pky">   <br>13.67   </td>
-    <td class="tg-0pky">   <br>-0.83%   </td>
-  </tr>
-</tbody>
-</table>
+|      Zone     |      Elevation Covariance     |      Elevation Covariance     |      Elevation Covariance     |      Canopy Cover (%)     |      Canopy Cover (%)     |      Canopy Cover (%)     |      Canopy Height (m)     |      Canopy Height (m)     |      Canopy Height (m)     |
+|:-------------:|:-----------------------------:|:-----------------------------:|:-----------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:--------------------------:|:--------------------------:|:--------------------------:|
+|               |               PA              |               UA              |          % Difference         |             PA            |             UA            |        % Difference       |              PA            |              UA            |         % Difference       |
+|      BAFA     |              0.39             |              0.39             |              0.01%            |           46.94%          |           48.47%          |            3.17%          |      **    14.03   **      |      **    13.11   **      |       **    -7%   **       |
+|       BG      |              0.38             |              0.38             |             -1.41%            |      **    61.8%   **     |     **    58.71%   **     |     **    -5.26%   **     |      **    23.00   **      |      **    21.58   **      |      **    -6.59%   **     |
+|      BWBS     |              0.37             |              0.38             |              2.62%            |           67.18%          |           64.72%          |            -3.8%          |            15.83           |            15.69           |            -0.9%           |
+|       CDF     |        **    0.31   **        |        **    0.33   **        |        **    6.35%   **       |     **    89.38%   **     |     **    83.69%   **     |     **    -6.79%   **     |            27.35           |            26.58           |            -2.89%          |
+|       CMA     |              0.38             |              0.39             |              1.63%            |           62.65%          |           64.01%          |            2.13%          |            19.91           |            20.01           |            0.48%           |
+|       CWH     |              0.34             |              0.33             |             -3.83%            |           83.94%          |           85.26%          |            1.55%          |            21.58           |            22.34           |             3.4%           |
+|      ESSF     |              0.37             |              0.37             |              0.34%            |      **    61.7%   **     |     **    64.97%   **     |      **    5.04%   **     |            18.90           |            18.91           |            0.07%           |
+|       ICH     |              0.36             |              0.36             |             -1.75%            |           81.24%          |           83.52%          |            2.73%          |            22.39           |            22.18           |            -0.98%          |
+|       IDF     |              0.36             |              0.36             |              -0.3%            |           67.42%          |            67.9%          |            0.71%          |            21.98           |            22.49           |            2.29%           |
+|       IMA     |              0.38             |              0.36             |             -3.72%            |     **    68.17%   **     |     **    62.07%   **     |     **    -9.83%   **     |      **    22.53   **      |      **    21.06   **      |      **    -6.98%   **     |
+|       MH      |              0.36             |              0.36             |              0.25%            |           76.87%          |           77.85%          |            1.26%          |      **    19.42   **      |      **    18.31   **      |      **    -6.07%   **     |
+|       MS      |              0.35             |              0.35             |              0.31%            |           57.99%          |           60.41%          |            4.01%          |            20.64           |            20.86           |            1.04%           |
+|       PP      |              0.36             |              0.37             |              0.25%            |     **    57.92%   **     |     **    48.93%   **     |     **    -18.36%   **    |      **    19.88   **      |      **    18.03   **      |     **    -10.24%   **     |
+|      SBPS     |              0.36             |              0.35             |             -1.97%            |           32.98%          |           34.63%          |            4.76%          |            18.00           |            18.70           |            3.75%           |
+|       SBS     |              0.37             |              0.37             |              -0.4%            |     **    62.24%   **     |     **    67.25%   **     |      **    7.45%   **     |            18.51           |            18.67           |            0.82%           |
+|       SWB     |              0.39             |              0.39             |             -1.22%            |           56.67%          |           57.71%          |            1.8%           |            13.78           |            13.67           |            -0.83%          |
 
 : Mean values of forest structural attributes in protected areas (PA), unprotected areas (UA), as well as the percent difference between the means. Zones with more than a 5% difference are bolded. {#tbl:vector-table}
 
