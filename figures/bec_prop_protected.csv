@@ -1,0 +1,17 @@
+zone,protected,count,perc,zone_nm,order
+BAFA,protected,21006609,0.30110211272637566,Boreal Altai Fescue Alpine,1
+BG,protected,333503,0.11678253187153967,Bunchgrass,2
+BWBS,protected,15727572,0.08819868325899077,Boreal White and Black Spruce,3
+CDF,protected,127345,0.048806446766498646,Coastal Douglas-fir,4
+CMA,protected,7109907,0.17914080376717628,Coastal Mountain-heather Alpine,5
+CWH,protected,23253313,0.21467354278688558,Coastal Western Hemlock,6
+ESSF,protected,34522429,0.18520799438372132,Engelmann Spruce -- Subalpine Fir,7
+ICH,protected,6186319,0.11268803892356741,Interior Cedar -- Hemlock,8
+IDF,protected,2929666,0.06351654728566646,Interior Douglas-fir,9
+IMA,protected,4084255,0.2924447910664697,Interior Mountain-heather Alpine,10
+MH,protected,8933423,0.20047400105705587,Mountain Hemlock,11
+MS,protected,2967856,0.1173494935538472,Montane Spruce,12
+PP,protected,233140,0.0713550948927271,Ponderosa Pine,13
+SBPS,protected,2379051,0.1079795984207267,Sub-Boreal Pine -- Spruce,14
+SBS,protected,7666897,0.08139210847523727,Sub-Boreal Spruce,15
+SWB,protected,22388213,0.23298131303264127,Spruce -- Willow -- Birch,16

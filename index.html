@@ -173,21 +173,19 @@
             <div class="header--title">Template to prepare preprints and manuscripts using markdown and github actions</div>
             <div class="header--authors">
                 <span class="header--author">
-                <a href="https://orcid.org/0000-0002-0735-5184" target="_blank">
-                    Timothée Poisot
+                <a href="https://orcid.org/0000-0003-3404-3220" target="_blank">
+                    Evan, R. Muise
                 </a>
                 <sup class="affilcode">1</sup>
+                </span><span class="header--author">
+                Nicholas, C. Coops
+                <sup class="affilcode">1</sup>
+                </span><span class="header--author">
+                Txomin Hermosilla
                 <sup class="affilcode">2</sup>
-                <sup class="affilcode">‡</sup>
                 </span><span class="header--author">
-                Peregrin Took
+                Stephen, S. Ban
                 <sup class="affilcode">3</sup>
-                <sup class="affilcode">4</sup>
-                </span><span class="header--author">
-                Merriadoc Brandybuck
-                <sup class="affilcode">5</sup>
-                <sup class="affilcode">4</sup>
-                <sup class="affilcode">‡</sup>
                 </span>
             </div>
         </div>
@@ -195,16 +193,8 @@
     
     <main class="container">
         <section class="abstract">
-            
+            Protected areas (PA) are an effective means of conserving biodiversity and protecting suites of valuable ecosystem services. Currently, many nations and international governments use proportional area protected as a critical metric for assessing progress towards biodiversity conservation. However, this and other common metrics do not assess the effectiveness of PA networks, nor do they assess how representative PA are of the ecosystems they aim to protect. Topography, stand structure, and land cover are all key drivers of biodiversity within forest environments, and are well suited as indicators to assess the representation of PA. Here we examine the protected area network in British Columbia, Canada, through these drivers derived from freely available data and remote sensing products across the provincial biogeoclimatic ecosystem classification system. We examine biases in the protected area network by elevation, forest disturbances, and forest structural attributes, including height, cover, and biomass by comparing a random sample of protected and unprotected pixels. Results indicate that PA are commonly biased towards high elevation and alpine land covers, and that forest structural attributes of the park network are often significantly different in protected vs unprotected areas (426 out of 496 forest structural attributes found to be different; p &lt; 0.01). Analysis of forest structural attributes suggests that establishing additional PA could ensure representation of various forest structure regimes across British Columbia’s ecosystems. We conclude that these approaches using free and open remote sensing data are highly transferable, and can be accomplished using consistent datasets to assess PA representations globally.
 
-            <dl>
-                    <dt>Purpose</dt>
-                <dd>This template provides a series of scripts to render a markdown document into an interactive website and a series of PDFs.</dd>
-                    <dt>Motivation</dt>
-                <dd>It makes collaborating on text with GitHub easier, and means that we never need to think about the output.</dd>
-                    <dt>Internals</dt>
-                <dd>GitHub actions and a series of python scritpts. The markdown is handled with <code>pandoc</code>.</dd>
-                </dl>
 
             <div class="artifacts">
                 <a href="draft.pdf" title="Draft PDF" target="_blank">draft</a>
@@ -213,140 +203,345 @@
         </section>
         
         <article>
-            <p>This template uses <code>pandoc</code> (and a few additional python glue scripts) to facilitate the production of scientific articles using a standard markdown file. The objective is to ensure that standard markdown (with the important exception of the <code>pandoc-crossref</code> citation markup) will be rendered into an interactive website (which allows collaborative annotations with the <code>hypothes.is</code> platform), a “draft” style PDF (double-spaced, numbered lines, figures at the end), and a “preprint” style PDF (with slightly more reader-friendly pagination).</p>
-            <p>The core bit of configuration is the <code>metadata.json</code> file, which handles information about authorship, affiliations, the abstract, keywords, etc. All documents will be deployed to <code>gh-pages</code> <em>only</em> on push events from the <code>main</code> branch. All of the artifacts will be built when doing pull requests, so you can check that merging a branch is <em>not</em> going to cause the compilation of the documents to fail; indeed, you can download the artifacts produced during the run, to check the PDF and html files. The website is only updated from the <code>main</code> branch.</p>
-            <p>The workflow is <em>very</em> GitHub based, and so the manuscript file <em>is</em> the <code>README.md</code> - this is not going to be a huge issue as 90% of the markdown is standard, with the exception of the citations and mathematics, so this will render (mostly) like a normal README file.</p>
-            <h1 id="deploying-the-template">Deploying the template</h1>
-            <p>The process of deploying this template has been <em>greatly</em> streamlined from previous versions:</p>
-            <ul>
-            <li>Click on the “Use this template” button</li>
-            <li>Edit <code>README.md</code> with your own text, commit, and push</li>
-            <li>This push will trigger the first build - the builds are only active on the <code>main</code> branch (<em>not</em> <code>master</code>!), and on pull requests</li>
-            <li>Go to <code>http://you.github.io/repo-name/</code> to view the html version, and get access to the PDFs</li>
-            <li>Add your references to the <code>references.bib</code> file</li>
-            <li>Edit the <code>metadata.json</code> file to add the title, abstract, authors</li>
-            </ul>
-            <p>In particular, note that <em>you do not need</em> to create a personnal access token to deploy to <code>gh-pages</code> (from where the website is served).</p>
-            <h1 id="the-metadata-file">The metadata file</h1>
-            <h2 id="general-information">General information</h2>
-            <p>The title is a field in the <code>metadata.json</code>:</p>
-            <div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-            <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;Preprint template&quot;</span></span>
-            <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
-            <h2 id="authorship">Authorship</h2>
-            <p>Authors are listed as objects in the <code>authors</code> block. Each author is specified as follows:</p>
-            <div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-            <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;familyname&quot;</span><span class="fu">:</span> <span class="st">&quot;Bob&quot;</span><span class="fu">,</span></span>
-            <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;givennames&quot;</span><span class="fu">:</span> <span class="st">&quot;Alice&quot;</span><span class="fu">,</span></span>
-            <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;email&quot;</span><span class="fu">:</span> <span class="st">&quot;alice.bob@u.edu&quot;</span><span class="fu">,</span></span>
-            <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;orcid&quot;</span><span class="fu">:</span> <span class="st">&quot;0000-0000-0000-0001&quot;</span><span class="fu">,</span></span>
-            <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;affiliations&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
-            <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Affiliation 1&quot;</span><span class="ot">,</span></span>
-            <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Affiliation 2&quot;</span></span>
-            <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span><span class="fu">,</span></span>
-            <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;corresponding&quot;</span><span class="ot">,</span> <span class="st">&quot;equal&quot;</span><span class="ot">]</span></span>
-            <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span></code></pre></div>
-            <p>The <code>email</code> field is recommended for all authors. The <code>status</code> field is only useful for the corresponding author, and to denote equal contributions. These informations are rendered on the initial page. If an <code>orcid</code> is given, it will be linked on the HTML and PDF versions.</p>
-            <p>Note that there is <em>no need</em> to number the affiliations - a small python script will take care of this automatically.</p>
-            <h2 id="abstract">Abstract</h2>
-            <p>This template supports three types of abstracts, indicated in the metadata file as <code>abstract</code>:</p>
-            <p>A regular <code>abstract</code> is defined as</p>
-            <div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;abstract&quot;:</span> <span class="er">&quot;A</span> <span class="er">very</span> <span class="er">long</span> <span class="er">string&quot;</span></span></code></pre></div>
-            <p>An itemized abstract is an array of strings, each representing a bullet point:</p>
-            <div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;abstract&quot;:</span> <span class="ot">[</span></span>
-            <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Point 1&quot;</span><span class="ot">,</span></span>
-            <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Point 2&quot;</span></span>
-            <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
-            <p>A structured abstract is an object with key-value pairs :</p>
-            <div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;abstract&quot;:</span> <span class="fu">{</span></span>
-            <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;Location&quot;</span><span class="fu">:</span> <span class="st">&quot;Worldwide&quot;</span><span class="fu">,</span></span>
-            <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;Organisms&quot;</span><span class="fu">:</span> <span class="st">&quot;Mammals&quot;</span></span>
-            <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
-            <h2 id="citation-style">Citation style</h2>
-            <p>The <code>citationstyle</code> key corresponds to the name, with <code>.csl</code> ommited, of a CSL stylesheet stored in the <a href="https://github.com/citation-style-language/">citation style language</a> repository. Note that there is no difference between main and dependent styles, the build engine will take the correct steps to get the correct style. The default is <code>"citationstyle": "ecology-letters"</code>. There is a longer section about references management later on.</p>
-            <h1 id="references-management">References management</h1>
-            <p>The references are managed by <code>pandoc</code>. Note that we <em>do not</em> use <code>pandoc-citeproc</code>, which was an external module for older <code>pandoc</code> versions. References <em>must</em> be stored in a <code>references.bib</code> file, and that it would make sense to order it alphabetically by key.</p>
-            <p>We use <a href="https://www.zotero.org/">Zotero</a> for references management, and for the lab’s manuscripts, we work from folders in a shared library (with a folder for every manuscript).</p>
-            <p>It is recommedned to use the <a href="https://retorque.re/zotero-better-bibtex/">Better BibTeX</a> plugin for citation key generations, and auto-export of the shared library to the <code>references.bib</code> file. We use a citation key format meant to convey information on the author (first author full name), date (complet year), and title (first three letters of the first two non-stop words). It must be set in the Better BibTeX preferences as (you might need to remove the line changes):</p>
-            <pre><code>[auth:fold]
-            [year]
-            [title:fold:nopunctordash:skipwords:lower:select=1,1:substring=1,3:capitalize]
-            [title:fold:nopunctordash:skipwords:lower:select=2,2:substring=1,3:capitalize]</code></pre>
-            <p>It is a good idea to configure Better BibTeX to auto-export on change, and to remove a lot of fields that are not strictly speaking required for references. The list of fields we usually ignore is:</p>
-            <pre><code>abstract,copyright,annotation,file,pmid,month,shorttitle,keywords</code></pre>
-            <p>The citations are done using the normal markdown syntax, where <code>@Elton1927AniEco</code> produces <span class="citation" data-cites="Elton1927AniEco">Elton (1927)</span>, and <code>[@Camerano1880EquViv]</code> produces <span class="citation" data-cites="Camerano1880EquViv">(Camerano 1880)</span>.</p>
-            <h1 id="figures-tables-and-other-floats">Figures, Tables, and other floats</h1>
-            <p>Note that you can wrap the text of legends for both figures and tables. This avoids the issue of having very long lines.</p>
-            <h2 id="mathematics">Mathematics</h2>
-            <p>The following equation</p>
-            <p><span id="eq:eq1"><span class="math display">$$J'(p) = \frac{1}{\text{log}(S)}\times\left(-\sum p \times \text{log}(p)\right)\qquad(1)$$</span></span></p>
-            <p>is produced using</p>
-            <div class="sourceCode" id="cb8"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$J&#39;(p) = </span><span class="sc">\frac</span><span class="ss">{1}{</span><span class="sc">\text</span>{log}<span class="ss">(S)}</span><span class="sc">\times</span><span class="ss"> ... $$</span> {#eq:eq1}</span></code></pre></div>
-            <p>and can be referenced using <code>@eq:eq1</code>, which will result in eq. 1. Note that because we use <code>pandoc-crossref</code>, the label “eq.” will be generated automatically.</p>
-            <h2 id="tables">Tables</h2>
-            <p>Table legends go on the line after the table itself. To generate a reference to the table, use <code>{#tbl:id}</code> – then, in the text, you can use <code>{@tbl:id}</code> to refer to the table. For example, the table below is tbl. 1. You can remove the <em>table</em> in front by using <code>!@tbl:id</code>, or force it to be capitalized with <code>\*tbl:id</code>.</p>
-            <div id="tbl:id">
-            <table>
-            <caption>Table 1: This is a table, and its identifier is <code>id</code> – we can refer to it using <code>{@tbl:id}</code>. Note that even if the table legend is written below the table itself, it will appear on top in the PDF document.</caption>
-            <thead>
-            <tr class="header">
-            <th style="text-align: right;">Sepal.Length</th>
-            <th style="text-align: right;">Sepal.Width</th>
-            <th style="text-align: right;">Petal.Length</th>
-            <th style="text-align: right;">Petal.Width</th>
-            <th style="text-align: left;">Species</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="odd">
-            <td style="text-align: right;">5.1</td>
-            <td style="text-align: right;">3.5</td>
-            <td style="text-align: right;">1.4</td>
-            <td style="text-align: right;">0.2</td>
-            <td style="text-align: left;">setosa</td>
-            </tr>
-            <tr class="even">
-            <td style="text-align: right;">5.0</td>
-            <td style="text-align: right;">3.6</td>
-            <td style="text-align: right;">1.4</td>
-            <td style="text-align: right;">0.2</td>
-            <td style="text-align: left;">setosa</td>
-            </tr>
-            <tr class="odd">
-            <td style="text-align: right;">5.4</td>
-            <td style="text-align: right;">3.9</td>
-            <td style="text-align: right;">1.7</td>
-            <td style="text-align: right;">0.4</td>
-            <td style="text-align: left;">setosa</td>
-            </tr>
-            </tbody>
-            </table>
+            <h1 id="introduction">Introduction</h1>
+            <p>Protected areas (hereafter PA) are an integral component of biological conservation, designed to preserve ecosystem services and biodiversity both inside the PA and in some cases the surrounding regions <span class="citation" data-cites="chapeMeasuringExtentEffectiveness2005 watsonPerformancePotentialProtected2014">(Chape et al. 2005, Watson et al. 2014)</span>. In recent decades, there has been a growing consensus of the need to conserve varying portions of the terrestrial area of the globe, with areal goals increasing over time <span class="citation" data-cites="cbd2010 cbd2004">(CBD 2004, 2010)</span>. In the 2010s, the Aichi biodiversity target sought to protect 17% of the entire globe <span class="citation" data-cites="cbd2010">(CBD 2010)</span>. Nationwide, the Canadian government has set the goal of protecting 25% of Canada’s terrestrial area by 2025 <span class="citation" data-cites="eccc2021">(ECCC 2021)</span>. While increasing proportional ecosystem protection does in turn aid conservation, it does not guarantee the representativeness of the entire ecosystem, nor that all biodiversity within the PA will be effectively conserved <span class="citation" data-cites="hazen2004">(Hazen and Anthamatten 2004)</span>.</p>
+            <p>Many conservation goals, both global and regional, are commonly based on the proportion of area protected, at least partly due to its ease of use and calculation <span class="citation" data-cites="brooks2004 cbd2010">(Brooks et al. 2004, CBD 2010)</span>. However, while the area protected is a simple metric to report, other metrics can be more informative, with the potential to convey how effective a given PA is for protecting the inherent ecosystem services or biodiversity in the area <span class="citation" data-cites="chapeMeasuringExtentEffectiveness2005 butchart2015 maxwell2020">(Chape et al. 2005, Butchart et al. 2015, Maxwell et al. 2020)</span>. Beyond areal extent, it is also relevant to consider the biases in PA placement, which are frequently located in fiscally cheaper, low productivity regions both globally <span class="citation" data-cites="venter2014 joppa2009 venter2018">(Joppa and Pfaff 2009, Venter et al. 2014, 2018)</span> and regionally, as is the case in British Columbia (BC), Canada <span class="citation" data-cites="environmentalreportingbc2016 wang2020 hamann2005">(Hamann et al. 2005, Environmental Reporting BC 2016, Wang et al. 2020)</span>. The area metric heavily underestimates the global protected area required to adequately protect biodiversity, which research indicates is up to 50% of each ecoregion <span class="citation" data-cites="dinersteinEcoregionBasedApproachProtecting2017 dinerstein2019">(Dinerstein et al. 2017, Dinerstein et al. 2019)</span>.</p>
+            <p>In response to the proportion protected approach, a number of other methodologies have been developed to evaluate the effectiveness of PAs before these larger global targets have been met <span class="citation" data-cites="boltonUncoveringRegionalVariability2019 hansenTrendsVitalSigns2018 parrishAreWeConserving2003 gastonEcologicalEffectivenessProtected2006 gastonEcologicalPerformanceProtected2008">(Parrish et al. 2003, Gaston et al. 2006, 2008, Hansen and Phillips 2018, Bolton et al. 2019)</span>. One recently identified concept in Canadian park management is ecological integrity. Ecological integrity is defined as an ecosystem having the expected “living and non-living pieces for the region,” and where ecological processes occur at the expected frequency and intensity for the region <span class="citation" data-cites="parkscanadaEcologicalIntegrity2019">(Parks Canada 2019)</span>. Many potential ecological integrity indicators have been examined to capture biodiversity related processes within PA <span class="citation" data-cites="hansenTrendsVitalSigns2018 hansenMonitoringForestEcosystem2021">(Hansen and Phillips 2018, Hansen et al. 2021)</span>. These indicators can then be interpreted manually or automatically, most often through examining temporal trends within the PA or by comparing the indicators to areas in known healthy reference ecosystems <span class="citation" data-cites="woodleyMonitoringMeasuringEcosystem1993">(Woodley 1993)</span>.</p>
+            <p>Frequently, comparisons between PA and unprotected areas (UA) have been drawn in order to assess PA performance and health <span class="citation" data-cites="defries2005">(Defries et al. 2005)</span>. This allows for the PA or PA network to be taken in context of surrounding and/or similar ecosystems <span class="citation" data-cites="wiens2009">(Wiens et al. 2009)</span>. There are, however, challenges associated with comparing the effectiveness of a PA network directly with UA. It can be difficult to identify suitable UA for comparison due to the increased prevalence of human pressure in UA <span class="citation" data-cites="geldmannGloballevelAssessmentEffectiveness2019">(Geldmann et al. 2019)</span>, and the bias for PA to be in areas that would not have faced increased human pressure due to their remoteness <span class="citation" data-cites="joppa2009">(Joppa and Pfaff 2009)</span>.</p>
+            <p><span class="citation" data-cites="ferraroCounterfactualThinkingImpact2009">Ferraro (2009)</span> prescribes the use of the counterfactual - comparing what has happened post-PA implementation with what would have happened if the PA were not implemented. The counterfactual method has recently been adopted in the literature as a more accurate method for assessing protected area management effectiveness <span class="citation" data-cites="ribasGlobalComparativeAnalysis2020">(Ribas et al. 2020)</span>. This method is frequently employed using matching methods to select UA which directly correspond to the PA being analyzed, often matching based on topography, climate, land cover, and other variables <span class="citation" data-cites="geldmannGloballevelAssessmentEffectiveness2019 coadMeasuringImpactProtected2015 eklundWhatConstitutesUseful2019">(Coad et al. 2015, Eklund et al. 2019, Geldmann et al. 2019)</span>. Collecting field data across both the PA and its counterfactual UA can often be time-and-cost prohibitive. The increasing prevalence of freely available imagery has led to satellite remote sensing becoming an essential tool for PA monitoring <span class="citation" data-cites="nagendraRemoteSensingConservation2013">(Nagendra et al. 2013)</span>.</p>
+            <p>The opening of the Landsat archive in 2008 <span class="citation" data-cites="wulderOpeningArchiveHow2012">(Wulder et al. 2012a)</span> has played a significant role in the use of satellite imagery in conservation monitoring <span class="citation" data-cites="nagendraParksWorkImpact2008 turner2015">(Nagendra 2008, Turner et al. 2015)</span>. The availability of 30-m spatial resolution data since 1984 allows for assessment of temporal trends in satellite derived indicators <span class="citation" data-cites="boltonUncoveringRegionalVariability2019 nagendraRemoteSensingConservation2013 hansenTrendsVitalSigns2018">(Nagendra et al. 2013, Hansen and Phillips 2018, Bolton et al. 2019)</span>, while the global coverage allows for comparisons between similar and differing ecosystems <span class="citation" data-cites="nagendraParksWorkImpact2008 wulderOpeningArchiveHow2012">(Nagendra 2008, Wulder et al. 2012a)</span>. Leveraging free and open-source optical remote sensing data products has allowed users to increasingly undertake comparisons across an entire jurisdiction’s PA network <span class="citation" data-cites="boltonUncoveringRegionalVariability2019 fraserMonitoringLandCover2009 soverelCharacterizingForestFragmentation2010 pôças2011 skidmore2021">(Fraser et al. 2009, Soverel et al. 2010, Pôças et al. 2011, Bolton et al. 2019, Skidmore et al. 2021)</span>, comparing them to ecologically similar UA <span class="citation" data-cites="buchanan2018 turner2015">(Turner et al. 2015, Buchanan et al. 2018)</span>. These comparisons allow for an assessment of the effectiveness of a given PA or the entire PA network at representing regional biodiversity trends <span class="citation" data-cites="boltonUncoveringRegionalVariability2019 soverelCharacterizingForestFragmentation2010 turner2015">(Soverel et al. 2010, Turner et al. 2015, Bolton et al. 2019)</span>.</p>
+            <p>Optical remote sensing technologies have offered a key approach to deriving indicators <span class="citation" data-cites="boltonUncoveringRegionalVariability2019 burkhardMappingEcosystemService2012 fraserMonitoringLandCover2009 nagendraParksWorkImpact2008 soverelCharacterizingForestFragmentation2010 pereira2013">(Nagendra 2008, Fraser et al. 2009, Soverel et al. 2010, Burkhard et al. 2012, Pereira et al. 2013, Bolton et al. 2019)</span> and detecting key terrestrial processes <span class="citation" data-cites="turner2003">(Turner et al. 2003)</span> to assess PA effectiveness at conserving ecological integrity <span class="citation" data-cites="nagendra2001 nagendraRemoteSensingConservation2013">(Nagendra 2001, Nagendra et al. 2013)</span>. These indicators derived from remote sensing technologies can be categorized and monitored at broad spatial extents and across temporal scales. Commonly used indicators include land cover proportion <span class="citation" data-cites="parmenterLandUseLand2003 olthofUsingSatelliteRemote2006">(e.g., forest type, wetland, and unvegetated, Parmenter et al. 2003, Olthof et al. 2006)</span>, tree species <span class="citation" data-cites="nagendra2001">(Nagendra 2001)</span>, habitat classification <span class="citation" data-cites="lucas2011 mcdermid2005">(McDermid et al. 2005, Lucas et al. 2011)</span>, spectral information <span class="citation" data-cites="gillespie2005 feeley2005 nagendra2010">(Feeley et al. 2005, Gillespie 2005, Nagendra et al. 2010)</span>, spectral heterogeneity <span class="citation" data-cites="rocchini2010">(Rocchini et al. 2010)</span>, and ecosystem structure <span class="citation" data-cites="cohen2004 goetz2007 pôças2011 soverelCharacterizingForestFragmentation2010">(Cohen and Goward 2004, Goetz et al. 2007, Soverel et al. 2010, Pôças et al. 2011)</span> and function <span class="citation" data-cites="skidmore2021">(Skidmore et al. 2021)</span>. Moreover, remote sensing technologies enable the monitoring of terrestrial processes, such as natural and anthropogenic disturbance regimes <span class="citation" data-cites="boltonUncoveringRegionalVariability2019 hermosilla2015 alsdorf2007 kerr2003">(Kerr and Ostrovsky 2003, Alsdorf et al. 2007, Hermosilla et al. 2015b, Bolton et al. 2019)</span>, alongside biogeochemical cycles <span class="citation" data-cites="myneni2001">(Myneni et al. 2001)</span>, vegetation productivity <span class="citation" data-cites="running2004">(Running et al. 2004)</span>, and vegetation dynamics <span class="citation" data-cites="zhang2003">(Zhang et al. 2003)</span>. Diversity in forest structural attribute measurements, often derived from light detection and ranging (lidar) is also a strong indicator of biodiversity, providing habitat, influencing food quality, and mediating microclimates <span class="citation" data-cites="guo2017 gao2014">(Gao et al. 2014, Guo et al. 2017)</span>.</p>
+            <p>Lidar enables the accurate characterization of treed vegetation structure (e.g. canopy height, canopy cover, basal area) across forested areas by measuring the time it takes for an emitted pulse of light to return to the sensor <span class="citation" data-cites="lim2003">(Lim et al. 2003)</span>. While the natural variation in vertical and horizontal forest structure has been extensively explored using lidar, comparisons between PA and UA have been less frequently drawn using these methods when compared to optical remote sensing <span class="citation" data-cites="nagendraRemoteSensingConservation2013">(Nagendra et al. 2013)</span>. The lack of previous comparisons has likely been due to the frequently limited extents of lidar acquisitions, a problem which has recently been solved by generating wall-to-wall metrics. These wall-to-wall metrics can be created by combining lidar data with times series of Landsat data, generating forest structural attributes across large regions and even entire countries <span class="citation" data-cites="wulderLidarSamplingLargearea2012 matasciThreeDecadesForest2018">(Wulder et al. 2012b, Matasci et al. 2018a)</span>.</p>
+            <p>As Canada progresses towards the national goal of 25% of terrestrial area protected by 2025, there is a growing need to better understand how PA compare to UA with respect to location, ecological classifications, elevations, productivity, and forest structure. In this study, we (1) examine the hypothesis that BC’s PA network is biased towards high-elevation, low-productivity regions of the province using free and open remote sensing data products, and (2) identify underrepresented forest structures in PA in the province. To accomplish this, we examined the bias in PA placement by comparing ecoregional PA coverage and land cover classes by elevation, and disturbances by latitude across protected and UA in BC. We examine representative forest structural attributes by comparing the distribution of key indicators by ecological zone to determine the differences between PA and UA to find the most and least similar represented forest structures throughout the network. We conclude by highlighting the usefulness of these globally available, high quality, consistent, and transferable datasets and methods for assessing PA effectiveness.</p>
+            <h1 id="methods">Methods</h1>
+            <h2 id="study-area">Study Area</h2>
+            <p>The province of British Columbia, Canada, covers 94.4 million ha, of which approximately 64% is forested <span class="citation" data-cites="bcministryofforestsBritishColumbiaForests2003">(BC Ministry of Forests 2003)</span>, and encapsulates a wide variety of biomes and ecosystems. This diversity of ecosystems is in part due to the large area as well as variations in topography and climate. The existing Biogeoclimatic Ecosystem Classification (BEC) system disaggregates BC ecosystems into zones <span class="citation" data-cites="pojarBiogeoclimaticEcosystemClassification1987">(Pojar et al. 1987)</span>. The broadest classification delineates 16 zones, which are further broken down into subzones, variants, and phases based on microclimate, precipitation, and topography <span class="citation" data-cites="meidingerEcosystemsBritishColumbia1991 pojarBiogeoclimaticEcosystemClassification1987">(Pojar et al. 1987, Meidinger and Pojar 1991)</span>. As a result, BEC zones vary widely in size (ranging from 0.25 million ha to 17.5 million ha), and in number of subzones (from 1 to 43; see Table 1).</p>
+            <p>Both the BC <span class="citation" data-cites="bcparks2012">(BC Parks 2012)</span> and Canada-wide <span class="citation" data-cites="governmentofcanada2019">(Government of Canada, 2019)</span> PA mandates commit to conserving ecological integrity across the network. The PA network in BC is designed to serve both ecological conservation and human recreation aims <span class="citation" data-cites="bcparks2012">(BC Parks 2012)</span> and consists of a network of PA and PA complexes (multiple nearby PA which share the same conservation goals), with large variations in size, ranging from 0.02 to 987,899 ha (fig. <strong>¿fig:study-area?</strong>).</p>
+            <p><img src="figures/bec_map.png" alt="Figure 1: Terrestrial British Columbia including BEC zones and the location of PA selected in this study." />{fig:study-area}</p>
+            <h2 id="data">Data</h2>
+            <h3 id="biogeoclimatic-ecosystem-classification-and-protected-areas">Biogeoclimatic Ecosystem Classification and Protected Areas</h3>
+            <p>Boundaries for BEC zones and subzones were acquired using the <strong>bcmaps</strong> R package <span class="citation" data-cites="R-bcmaps">(Teucher et al. 2021)</span>. Two BEC subzones were entirely subsumed by PA (Boreal White and Black Spruce - Very Wet Cool and Spruce – Willow – Birch - Very Wet Cool Shrub), whereas the Sub-Boreal Pine – Spruce - Moist Cool subzone has no PA representation.</p>
+            <p>Boundaries for all PA in BC were obtained from the Canadian Protected and Conserved Areas Database (available from <a href="https://cws-scf.ca/CPCAD-BDCAPC_Dec2020.gdb.zip" class="uri">https://cws-scf.ca/CPCAD-BDCAPC_Dec2020.gdb.zip</a>), current as of December 2020, and includes the International Union for Conservation of Nature (IUCN) classification for each PA. PA were selected for analysis following the criteria outlined in <span class="citation" data-cites="boltonUncoveringRegionalVariability2019">Bolton et al. (2019)</span>. Only parks which belonged to IUCN classes Ia, Ib, II, and IV were selected, as these categories are considered strictly protected. Protected areas &lt; 100 ha in size were also excluded from the analysis, as these mainly occurred in urbanized areas. After selection, 745 suitable parks managed under various jurisdictions (provincial, federal, NGOs), comprising 15.4% of the total terrestrial area of British Columbia, were studied <span class="citation" data-cites="environmentalreportingbc2016">(Environmental Reporting BC 2016)</span>. An equal sample of pixels equal to the area of PA or UA - whichever was lower - was randomly selected from both PA and UA for each BEC subzone. This sampling regime accounts for bias in topography, climate, and climax species due to the methods used to delineate BEC zones and subzones <span class="citation" data-cites="pojarBiogeoclimaticEcosystemClassification1987">(Pojar et al. 1987)</span>.</p>
+            <h3 id="digital-elevation-model">Digital Elevation Model</h3>
+            <p>The Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER) digital elevation model (GDEM V2, 30 m) was used to examine biases in protected area land cover and ecological classification by elevation <span class="citation" data-cites="tachikawa2011">(Tachikawa et al. 2011)</span>.</p>
+            <h3 id="landsat-derived-datasets">Landsat derived datasets</h3>
+            <p>Land cover, forest disturbances, and forest structural attributes for BC were derived from the annual Landsat best-available-pixel (BAP) composites from 1984 to 2019 at 30-m spatial resolution generated using the Composite2Change (C2C) approach <span class="citation" data-cites="hermosillaMassDataProcessing2016">(Hermosilla et al. 2016)</span>. These composites are generated by annually selecting the optimal observations, free from atmospheric effects (haze, clouds, cloud shadows), for each pixel from the catalog of available Landsat-5 Thematic Mapper (TM), Landsat-7 Enhanced Thematic Mapper Plus (ETM+), and Landsat-8 Operational Land Imager (OLI) imagery acquired during Canada’s growing season using the scoring functions defined in <span class="citation" data-cites="whitePixelBasedImageCompositing2014">White et al. (2014)</span>. The annual BAP composites are further refined by applying a spectral trend analysis over the Normalized Burn Ratio (NBR) at pixel level in order to remove unscreened noise, detect changes and fill data gaps with temporally-interpolated values, resulting in annual, gap-free, surface-reflectance image composites <span class="citation" data-cites="hermosilla2015">(Hermosilla et al. 2015b)</span>. During this process, forest disturbances are detected, characterized and attributed to a disturbance agent (i.e., wildfire, harvest, non-stand replacing disturbances) using a Random Forests classification model via the object-based analysis approach <span class="citation" data-cites="hermosillaIntegratedLandsatTime2015">(Hermosilla et al. 2015a)</span> with an overall accuracy of 92% ±2% <span class="citation" data-cites="hermosillaMassDataProcessing2016">(Hermosilla et al. 2016)</span>.</p>
+            <p>Annual land cover information for Canada was produced using the BAP composites following the Virtual Land Cover Engine framework <span class="citation" data-cites="hermosillaDisturbanceInformedAnnualLand2018">(Hermosilla et al. 2018)</span>. This framework integrates post-classification probabilities, forest disturbance information and forest successional knowledge with a Hidden Markov Model to ensure logical land cover transitions between years. The classification comprises 12 land cover classes organized as either non-vegetated or vegetated. Non-vegetated classes included water, snow/ice, rock/rubble, and exposed/barren land. Vegetated land cover classes discriminated among non-treed and treed vegetation (land-cover level). Vegetated non-treed classes comprised bryoids, herbs, wetland, and shrubs. Vegetated treed land cover classes included wetland-treed, coniferous, broadleaf, and mixed wood. Independent validation of the land cover maps indicated an overall accuracy of 70.3% ± 2.5%.</p>
+            <p>Wall-to-wall, 30-m forest structure metrics (i.e., Lorey’s height, total aboveground biomass, elevation covariance, and canopy cover) were also annually derived from the BAP composites using the imputation method described in Matasci et al. <span class="citation" data-cites="matasciThreeDecadesForest2018 matasciLargeareaMappingCanadian2018">(2018b, 2018a)</span>. This method uses lidar and field plot data to estimate forest structure metrics from topographic and Landsat spectral predictors, using a k-Nearest Neighbor approach. Reported accuracy for the structure metrics indicated a RMSE% ranging from 24.5% to 65.8% and a R<sup>2</sup> ranging from 0.125 to 0.699 <span class="citation" data-cites="matasciThreeDecadesForest2018">(Matasci et al. 2018a)</span>.</p>
+            <p>Forest cover classes (deciduous, broadleaf, mixed-wood, and wetland-treed) were used to generate land cover masks to restrict the comparison of forest structural attributes to treed pixels. Pixels with harvest activity disturbances detected post-1985 were also removed from forest structural attribute rasters in both PA and UA, in order to restrict analysis to non-anthropogenically disturbed areas. All datasets are displayed in fig. <strong>¿fig:data-fig?</strong>.</p>
+            <p><img src="figures/data_map.png" alt="Figure 2: Visualizations for all layers included in the analysis for Garibaldi Park and surrounding region (red outline) in BC for 2015." />{fig. <strong>¿fig:data-fig?</strong>}</p>
+            <h2 id="analysis">Analysis</h2>
+            <p>To determine bias in ecosystem representation in BC’s PA network, we compared BEC zone, land cover, and disturbance proportions within and outside the PA network. We employ counterfactual thinking by examining BEC zone, and land cover as a function of elevation, and secondly compiled disturbance rates on a latitudinal gradient across the province. Forest structural attributes were then examined at a finer ecosystem classification level, statistically comparing PA vs UA across similar ecosystems. Forest structural means across BC zones were calculated to determine which forest structures need additional representation in the current BC PA network. All data manipulation and analysis was conducted in the <strong>R</strong> <span class="citation" data-cites="R-base">(R Core Team 2021)</span> or <strong>Python</strong> programming languages.</p>
+            <h3 id="ecosystems-land-cover-and-disturbances">Ecosystems, Land Cover, and Disturbances</h3>
+            <p>BEC zones and land cover classifications were aggregated to both PA and UA in order to determine the proportion of each zone under the protected classifications, to examine progress towards the Aichi biodiversity targets. In this analysis, zones were used to examine categorical data (land cover and disturbance) for the period of 1984-2019. Land cover and BEC zones were further examined along an elevation gradient, at 50m increments. Histograms of area by elevation were generated in order to examine the areal magnitude alongside the proportional coverage of land cover and BEC zones. This allows us to examine the amount of area protected at each elevation, as well as the differences between PA and UA. Forest disturbances (including harvesting) were aggregated along a latitudinal gradient at increments of 0.5°.</p>
+            <h3 id="forest-structural-attributes">Forest Structural Attributes</h3>
+            <p>T-tests for PA vs UA were conducted on all pixels selected for analysis by BEC subzone and forest structural attribute for 2015, and the Bonferroni correction was applied. The Bonferroni correction avoids spuriously significant results in multiple comparison tests by dividing the significant p-value (0.01) by the number of tests <span class="citation" data-cites="bonferroni1936">(Bonferroni 1936)</span>. Within each BEC zone, higher proportions of significant tests will indicate dissimilar subzones in each forest structural attribute. The mean values for PA and UA forest structural attributes were calculated, in order to examine the differences in their distribution and determine which structures and zones differ between PA and UA. Values were also converted into z-scores to determine the greatest standardized vector magnitude when comparing canopy cover, elevation covariance, and forest height between PA and UA.</p>
+            <h1 id="results">Results</h1>
+            <h3 id="ecosystems-land-cover-and-disturbances-1">Ecosystems, Land Cover, and Disturbances</h3>
+            <p>British Columbia’s ecosystems are protected at varying rates across the province (fig. <strong>¿fig:bec-conch?</strong>). Of the 16 ecosystems present in BC, seven are protected at rates above the Aichi biodiversity target (17%). Only two zones (Boreal Altai Fescue Alpine and Interior Mountain-heather Alpine) are currently protected at rates above the Canadian 2025 protection targets (25%). Zones with Douglas-fir (<em>Pseudotsuga menziesii</em>) as dominant old-growth components (Coastal Douglas-fir and Interior Douglas-fir) are the least proportionally represented zones in British Columbia, with 4.9% and 6.4% protected, respectively (fig. <strong>¿fig:bec-conch?</strong>).</p>
+            <p><img src="figures/bec_bar.png" alt="Figure 3: Areal proportion of biogeoclimatic ecosystem classification (BEC) zones protected in British Columbia (See Table 1 for full BEC zone names)." />{fig. <strong>¿fig:bec-conch?</strong>}</p>
+            <p>As elevation increases in BC, increasing terrestrial area is protected within the PA network until ~4000m, upon which all terrestrial area is protected (fig. <strong>¿fig:bec-elev?</strong>). When comparing between PA and UA, zones are protected at differing proportions. Zones commonly found at high elevations, such as the Boreal Altai Fescue Alpine, are predominantly located in protected areas, however, little terrestrial area is found at these elevations. In low elevations, proportions of area protected also differ, with Coastal Western Hemlock having a large proportion of coverage in PA, while in UA, Boreal Black and White Spruce are underrepresented. Generally, the remaining ecosystems are found at similar rates in both PA and UA (fig. <strong>¿fig:bec-elev?</strong>).</p>
+            <p><img src="figures/bec_elev_hist.png" alt="Figure 4: Histogram of area protected in British Columbia by Elevation (a). Proportion of Biogeoclimatic Ecosystem Classification (BEC) zone by elevation for both protected areas (b), and unprotected areas (c). Histogram of area unprotected in British Columbia by Elevation (d)." />{fig. <strong>¿fig:bec-elev?</strong>}</p>
+            <p>Protected land cover also varies by proportion (fig. <strong>¿fig:vlce-conch?</strong>). Non-vegetated classes of snow/ice, exposed/barren land, and rock/rubble have higher than average proportions protected while mixed wood and broadleaf land cover classes are underrepresented. All other classes are found at rates similar to the overall proportion of the province protected (~15%; fig. <strong>¿fig:vlce-conch?</strong>).</p>
+            <p><img src="figures/vlce_bar.png" alt="Figure 5: Areal proportion of land cover classes protected in BC." />{fig. <strong>¿fig:vlce-conch?</strong>}</p>
+            <p>Similar to BEC zones (fig. <strong>¿fig:bec-elev?</strong>), land cover also varies with elevation (fig. <strong>¿fig:lcc-elev?</strong>). Expectedly, snow/ice make up a large proportion of PA at higher elevations. At lower elevations in UA, mixed wood forest is a more common forest type than in PA, while wetland classes (wetland, wetland-treed) are less frequent in the 400-900m elevation range in UA compared to PA.</p>
+            <p><img src="figures/lcc_elev_hist.png" alt="Figure 6: Histogram of area protected in British Columbia by Elevation (a) Proportion of land cover by elevation for both protected areas (b), and unprotected areas (c). Histogram of area unprotected in British Columbia by Elevation (d)." />{fig. <strong>¿fig:lcc-elev?</strong>}</p>
+            <p>Examining the elevation distributions of BEC zones and land cover classes shows elevation variation in some classes and ecosystems (fig. <strong>¿fig:elev-boxplots?</strong>). Generally, BEC zones are found at similar elevation profiles in both PA and UA. Alpine BEC zones (Interior Mountain-heather Alpine, Boreal Altai Fescue Alpine, and Coastal Mountain-heather Alpine) are found at similar elevations across PA and UA, while other zones such as Sub-Boreal Pine – Spruce, Ponderosa Pine, and Bunchgrass vary in their elevation profiles. Land cover classes show differences in the wetland, wetland-treed, and mixed wood classes. The wetland classes are found at lower elevations in PA than UA, while the mixed wood class has more variation in PA.</p>
+            <p><img src="figures/elev_boxplots.png" alt="Figure 7: Elevation boxplots for BEC zones (a), and land cover classes (b). Whiskers indicate first quartile minus the interquartile range and third quartile to the interquartile range. Box and interior vertical line indicate first quartile, median, and third quartile, respectively." />{fig. <strong>¿fig:elev-boxplots?</strong>}</p>
+            <p>Overall, the burned area of forested cells is similar between PA (2.5% overall) and UA (2.3%), while harvesting is much higher in UA (7.2%) than in PA (0.33%). Harvesting is more common at lower latitudes in UA than at higher latitudes. Fire shows similar, but not identical patterns across varying latitudes, with higher wildfire proportions at high latitudes and between 51-53°N (fig. <strong>¿fig:lat-dist?</strong>).</p>
+            <p><img src="figures/latitude_disturbance_plot.png" alt="Figure 8: Proportion of area disturbed by latitude from 1984 to 2019 in protected areas (a), and unprotected areas (b). Proportion of terrestrial area that is protected at each latitude (c)." />{fig. <strong>¿fig:lat-dist?</strong>}</p>
+            <h3 id="forest-structural-attributes-1">Forest Structural Attributes</h3>
+            <p>fig. <strong>¿fig:t-test-plot?</strong> shows the subzonal proportional significance (<em>p &lt; 0.01</em>) grouped by ecosystem for the 496 comparisons of forest structural variables. Higher percentages confirm ecosystems which had increased number of dissimilar subzones for the specific indicator, and shows that at least half of all subzones in each ecosystem are significantly different (the exception being Ponderosa Pine, which consists of a single subzone that is not significantly different in canopy structure). Median proportional significance values for canopy height, canopy cover, and aboveground biomass are universally significantly different between PA and UA within the same ecosystem.</p>
+            <p><img src="figures/t_tests_scatter.png" alt="Figure 9: Boxplot of proportion of ecosystem subzone which have significant p-values from a two-tailed t-test with the Bonferroni correction (n = 496) applied at a significance level of 0.05. Boxplot vertical lines indicate the first quartile, the median, and the third quartile. The whisker extends from the first quartile to the smallest value no further than 1.5 * interquartile range from the first quartile." />{fig. <strong>¿fig:t-test-plot?</strong>}</p>
+            <p>Forest structural attributes vary between PA and UA in BC (fig. <strong>¿fig:structure-3d-scatter?</strong>). The largest differences between PA and UA are found in canopy structure in the Coastal Douglas-fir BEC zone, with the protected area having much higher canopy structure values. As shown in fig. <strong>¿fig:t-test-plot?</strong>, forests are commonly significantly different when comparing PA vs UA across all attributes. When examining the forests on an BEC zone level, only one BEC zone has a &gt;5% difference in vertical forest structure (co-efficient of variation in vegetation returns), six BEC zones have &gt;5% difference in canopy cover, and five BEC zones have a &gt;5% difference in canopy height. Ponderosa pine has large differences in canopy cover and canopy height (&gt;5%), but minor differences in elevation covariance (only 0.25%; Table 2). PA in the Ponderosa Pine, Interior Mountain Heather Alpine, and Coastal Douglas-fir have more aboveground biomass than in UA in corresponding areas (fig. <strong>¿fig:structure-3d-scatter?</strong>).</p>
+            <p><img src="figures/fstruct_zscores.png" alt="Figure 10: Z-Scores of forest structural attributes in PA, UA, and their differences across BEC zones in BC." />{fig. <strong>¿fig:structure-3d-scatter?</strong>}</p>
+            <h1 id="discussion">Discussion</h1>
+            <p>The recent global availability of freely available, open-source, consistent, and accurate remote sensing data products allow researchers to examine issues of representation of PA compared to UA, and regional ecosystems in novel ways <span class="citation" data-cites="boltonUncoveringRegionalVariability2019 soverelCharacterizingForestFragmentation2010 hansenTrendsVitalSigns2018">(Soverel et al. 2010, Hansen and Phillips 2018, Bolton et al. 2019)</span>. Additionally, the capacity to track forest structural attributes, a key indicator of forest biodiversity <span class="citation" data-cites="guo2017">(Guo et al. 2017)</span>, across wide swaths allows for informed decisions on potential locations of new PA which capture previously underrepresented forest structure conditions <span class="citation" data-cites="noss1999">(Noss 1999)</span>. By applying this analysis to an entire PA network across BEC zones (or other ecological classifications), it becomes possible to determine not only which BEC zones need additional representation (the proportional metric), but also what types of forest structures should be represented to ensure adequate biodiversity protection <span class="citation" data-cites="lemieux2005">(Lemieux and Scott 2005)</span>.</p>
+            <p>Internationally, biodiversity preservation targets aim to protect a proportion of the total terrestrial area <span class="citation" data-cites="cbd2010">(CBD 2010)</span>. Frequently, new protected areas are placed in high-elevation, low-productivity ecosystems both globally <span class="citation" data-cites="venter2014 joppa2009 venter2018">(Joppa and Pfaff 2009, Venter et al. 2014, 2018)</span>, and in BC, as confirmed by our analysis of ecosystem (fig. <strong>¿fig:bec-conch?</strong>) and land cover (fig. <strong>¿fig:vlce-conch?</strong>) proportions. Alpine ecosystems are more commonly protected (fig. <strong>¿fig:bec-conch?</strong>), as are the land covers commonly present within them (rock/rubble, snow/ice, exposed/barren land; fig. <strong>¿fig:vlce-conch?</strong>). As elevation increases, these ecosystems and land covers begin to dominate the proportional representation (see fig. <strong>¿fig:bec-elev?</strong> and fig. <strong>¿fig:lcc-elev?</strong>). Differences between elevation profiles in land cover classes and BEC zones were also found, with the starkest difference being that wetland classes were found at lower elevations in PA (fig. <strong>¿fig:elev-boxplots?</strong>)</p>
+            <p>In high elevation ecosystems, Boreal Altai Fescue Alpine dominates the PA proportions above 3000m, replacing the Coastal Mountain-Heather Alpine ecosystem found in UA (fig. <strong>¿fig:bec-elev?</strong>). These zones were both protected at rates above the average (fig. <strong>¿fig:bec-conch?</strong>), and above the Aichi biodiversity targets. Interior mountain-heather alpine had large differences in canopy cover and canopy height, while Boreal Altai Fescue Alpine only showed large differences in height. The Coastal Mountain-heather Alpine did not any have large forest structural attribute differences (Table 2).</p>
+            <p>Distribution of disturbances followed a similar pattern to that reported by <span class="citation" data-cites="boltonUncoveringRegionalVariability2019">Bolton et al. (2019)</span>. Thus, the area affected by wildfires is comparable between PA and UA and at mid latitudes (51-53°N), while harvesting activity is more prevalent in UA and at low latitudes (fig. <strong>¿fig:lat-dist?</strong>).</p>
+            <p>Our analysis shows that the majority of structural attributes were significantly different between the protected and unprotected forest stands across BEC subzones (fig. <strong>¿fig:t-test-plot?</strong>). In the south, Coastal Douglas-fir, a zone with a single subzone, had the large variation between PA and UA in two of four forest structural attributes examined. The unprotected forests were significantly less tall, had significantly less canopy cover, and significantly higher elevation covariance (vertical forest structure; fig. <strong>¿fig:structure-3d-scatter?</strong>). In addition, it was the least protected BEC zone by area, with only 4.9% of the total terrestrial area protected. In this specific BEC zone, not only does additional area need to be protected to meet national goals, different forest structures need to be included in new protected areas <span class="citation" data-cites="paillet2010">(Paillet et al. 2010)</span>.</p>
+            <p>Utilizing this information on the proportion of BEC zones protected (fig. <strong>¿fig:bec-conch?</strong>), as well as their forest structural attributes (Table 2), it is possible to identify which forest structures need to be added to the PA network in BC. Those BEC zones with large differences (identified as being &gt;5% change from PA to UA) suggest additional protection is needed to encapsulate these underrepresented forest structures. For example: the forests in the Bunchgrass zone have large differences in both canopy cover and canopy height, with the PA having larger values in both attributes (Table 2). New PA in this BEC zone should contain forests with shorter and more open forests. A future avenue of research could be to incorporate forest structural attributes into spatially optimized PA placement approaches <span class="citation" data-cites="christensen2009">(Christensen et al. 2009)</span>.</p>
+            <p>The advent of free and open-source global datasets can allow for the monitoring of protected area health across the globe <span class="citation" data-cites="nagendraRemoteSensingConservation2013">(Nagendra et al. 2013)</span>. Analyzing large amounts of free and open-source data using open-source software approaches offers previously unseen perspectives into protected area representativeness. There are some challenges associated with this, namely: optical imagery archives being scarce in some regions due to imagery acquisition policies <span class="citation" data-cites="wulder2016">(Wulder et al. 2016)</span>, clouds and atmospheric interference, lack of aerial lidar data available, and varying hierarchies of land cover classifications in differing regions. New data and satellite missions are being introduced that can meet these challenges at a spatial resolution of 30 m or less such as Landsat-9 and Sentinel-2, as well as spaceborne lidar such as GEDI <span class="citation" data-cites="dubayahGlobalEcosystemDynamics2020">(Dubayah et al. 2020)</span> and ICESat-2 <span class="citation" data-cites="neuenschwander2020">(Neuenschwander et al. 2020)</span>, which can provide global coverage of various forest structural attributes <span class="citation" data-cites="potapovMappingGlobalForest2021">(Potapov et al. 2021)</span> through similar imputation methods to <span class="citation" data-cites="matasciThreeDecadesForest2018">Matasci et al. (2018a)</span>, global land cover maps <span class="citation" data-cites="potapovLandsatAnalysisReady2020 zanagadaniele2021">(Potapov et al. 2020, Zanaga et al. 2021)</span>, and forest disturbance maps <span class="citation" data-cites="hansenHighResolutionGlobalMaps2013">(Hansen et al. 2013)</span>. These novel datasets provide clear opportunities for regional to global analyses of PA vs UA to be conducted concerning forest structure.</p>
+            <p>Future research monitoring protected area health using satellite remote sensing could focus on implementing essential biodiversity variables <span class="citation" data-cites="pereira2013">(Pereira et al. 2013)</span> into their monitoring scheme. Advancing research towards these variables would not only benefit PA monitoring projects, but also biodiversity monitoring projects across the globe. Beyond this, examining the recovery of forest structural attribute following disturbances in both PA and UA could assess the effectiveness of PA for promoting regeneration.</p>
+            <h1 id="conclusion">Conclusion</h1>
+            <p>In conclusion, we identified biases in the BC PA network for PA to be placed in high-elevation BEC zones, commonly dominated by low-productivity land covers. We examined the disturbance regimes of PA vs UA by latitude, finding that wildfires are similar, while harvesting differs across the province. We then compared the forest structural attributes across all BEC subzones, finding that the majority of subzones have significantly different forest structures. Beyond this, we identified BEC zones with large variation in mean forest structural attributes. When new PA locations are decided upon in BC, they should take forest structure into consideration, as wall-to-wall coverage of forest structural attributes becomes available. Novel datasets can allow this methodology to be applied across large regions, in order to identify PA biases and underrepresented forest structures.</p>
+            <h1 id="acknowledgments">Acknowledgments</h1>
+            <p>This research was funded through the Living Lab for Climate Change and Conservation program of the British Columbia Parks (grant ID: TP21JHQ011) and in part by NSERC support of Coops (RGPIN-2018-03851). Remote sensing data products utilized in this research are free and open and available for download at: <a href="https://ca.nfis.org/maps_eng.html" class="uri">https://ca.nfis.org/maps_eng.html</a>. We thank Dr Michael Wulder and Dr Joanne White for development and early access to these National Terrestrial Ecosystem Mapping System (NTEMS) products. We also thank an anonymous reviewer for their comments which helped improve the manuscript.</p>
+            <h1 class="unnumbered" id="literature-cited">Literature Cited</h1>
+            <div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
+            <div id="ref-alsdorf2007" class="csl-entry" role="doc-biblioentry">
+            Alsdorf, D. E., E. Rodriguez, and D. P. Lettenmaier. 2007. Measuring surface water from space. Reviews of Geophysics 45:RG2002.
             </div>
-            <h1 id="figures">Figures</h1>
-            <p>Figures can have a legend – all figures <em>must</em> be in the <code>figures/</code> folder of the project, as it is also used for the website. We recommend to use good resolution images, rather than PDFs, or at least to have multiple versions available.</p>
-            <pre><code>![This is the legend of the figure...](figures/figure.png){#fig:figure}</code></pre>
-            <figure>
-            <img src="figures/figure.png" id="fig:figure" alt="Figure 1: This is the legend of the figure, which will be shown in the margin in preprint mode, and underneath the figure in draft mode. The legend can contain references, etc. It is advised to use a resolution of at least 600dpi for the figures." /><figcaption aria-hidden="true">Figure 1: This is the legend of the figure, which will be shown in the margin in preprint mode, and underneath the figure in draft mode. The legend can contain references, etc. It is advised to use a resolution of at least 600dpi for the figures.</figcaption>
-            </figure>
-            <p>We can now use <code>@fig:figure</code> to refer to fig. 1.</p>
-            <h1 id="example-text">Example text</h1>
-            <p>Connectance, defined as the ratio of realized interactions on the total number of potential interactions, is one of the most common descriptor of network structure. In a bipartite network with <span class="math inline"><em>T</em></span> species at the top, and <span class="math inline"><em>B</em></span> at the bottom, having a total of <span class="math inline"><em>L</em></span> interactions, it is defined as <span class="math inline"><em>C</em><em>o</em> = <em>L</em>/(<em>T</em> × <em>B</em>)</span>. Connectance has a lower bound, as the network cannot have fewer interactions that the number of species in its more speciose level – the minimal connectance is therefore <span class="math inline"><em>c</em><sub><em>m</em></sub> = max(<em>T</em>, <em>B</em>)</span>. This makes the connectance of networks of different sizes difficult to compare, especially since bipartite networks tends to have a low connectance. For this reason, we used a corrected version of connectance, defined as</p>
-            <p><span id="eq:cstar"><span class="math display">$$Co^\star=\frac{L-c_m}{T\times B-c_m} \,.\qquad(2)$$</span></span></p>
-            <h2 id="this-is-a-subsection">This is a subsection</h2>
-            <p>This takes values between 0 (the network has the minimal number of interactions) and 1 (all species are connected), but is robust to variations in species richness.</p>
-            <h2 id="this-is-another-subsection">This is another subsection</h2>
-            <p>This takes values between 0 (the network has the minimal number of interactions) and 1 (all species are connected), but is robust to variations in species richness.</p>
-            <h2 id="some-non-standard-maths">Some non-standard maths</h2>
-            <p>The phylogenetic reconstruction of <span class="math inline">$\hat{\mathscr{L}}$</span> and <span class="math inline">$\hat{\mathscr{R}}$</span> has an associated uncertainty, represented by the breadth of the uniform distribution associated to each of their entries. Therefore, we can use this information to assemble a <em>probabilistic</em> metaweb in the sense of <span class="citation" data-cites="Poisot2016StrPro">(<strong>Poisot2016StrPro?</strong>)</span>, <em>i.e.</em> in which every interaction is represented as a single, independent, Bernoulli event of probability <span class="math inline"><em>p</em></span>.</p>
-            <p>Specifically, we have adopted the following approach. For every entry in <span class="math inline">$\hat{\mathscr{L}}$</span> and <span class="math inline">$\hat{\mathscr{R}}$</span>, we draw a value from its distribution. This results in one instance of the possible left (<span class="math inline">$\hat{\mathscr{l}}$</span>) and right (<span class="math inline">$\hat{\mathscr{r}}$</span>) subspaces for the Canadian metaweb. These can be multiplied, to produce one matrix of real values. Because the entries in <span class="math inline">$\hat{\mathscr{l}}$</span> and <span class="math inline">$\hat{\mathscr{r}}$</span> are in the same space where <span class="math inline">ℒ</span> and <span class="math inline">ℛ</span> were originally predicted, it follows that the threshold <span class="math inline"><em>ρ</em></span> estimated for the European metaweb also applies. We use this information to produce one random Canadian metaweb, <span class="math inline">$N = \hat{\mathscr{L}}$</span><span class="math inline">$\hat{\mathscr{R}}' \ge \rho$</span>.</p>
-            <p>Because the intervals around some trait values can be broad <span class="citation" data-cites="Garland1999IntPhy">(in fact, probably broader than what they would actually be, see <em>e.g.</em> <strong>Garland1999IntPhy?</strong>)</span>, we repeat the above process <span class="math inline">2 × 10<sup>5</sup></span> times, which results in a probabilistic metaweb <span class="math inline"><em>P</em></span>, where the probability of an interaction (here conveying our degree of trust that it exists given the inferred trait distributions) is given by the number of times where it appears across all random draws <span class="math inline"><em>N</em></span>, divided by the number of samples. An interaction with <span class="math inline"><em>P</em><sub><em>i</em>, <em>j</em></sub> = 1</span> means that these two species were predicted to interact in all <span class="math inline">2 × 10<sup>5</sup></span> random draws, etc..</p>
-            <h1 class="unnumbered" id="references">References</h1>
-            <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-            <div id="ref-Camerano1880EquViv" class="csl-entry" role="doc-biblioentry">
-            Camerano, L. (1880). Dell’equilibrio dei viventi merce la reciproca distruzione. <em>Atti Della R. Accad. Delle Sci. Torino</em>, 15, 393–414.
+            <div id="ref-bcministryofforestsBritishColumbiaForests2003" class="csl-entry" role="doc-biblioentry">
+            BC Ministry of Forests. 2003. British Columbia’s forests and their management.
             </div>
-            <div id="ref-Elton1927AniEco" class="csl-entry" role="doc-biblioentry">
-            Elton, C.S. (1927). <em>Animal ecology</em>. University of Chicago Press.
+            <div id="ref-bcparks2012" class="csl-entry" role="doc-biblioentry">
+            BC Parks. 2012. Ecological Integrity in British Columbia’s Parks and Protected Areas.
+            </div>
+            <div id="ref-boltonUncoveringRegionalVariability2019" class="csl-entry" role="doc-biblioentry">
+            Bolton, D. K., N. C. Coops, T. Hermosilla, M. A. Wulder, J. C. White, and C. J. Ferster. 2019. Uncovering regional variability in disturbance trends between parks and greater park ecosystems across Canada (1985). Scientific Reports 9:1323.
+            </div>
+            <div id="ref-bonferroni1936" class="csl-entry" role="doc-biblioentry">
+            Bonferroni, C. E. 1936. Teoria statistica delle classi e calcolo delle probabilità. Pages 3–62.
+            </div>
+            <div id="ref-brooks2004" class="csl-entry" role="doc-biblioentry">
+            Brooks, T. M., M. I. Bakarr, T. Boucher, G. A. B. Da Fonseca, C. Hilton-Taylor, J. M. Hoekstra, T. Moritz, S. Olivieri, J. Parrish, R. L. Pressey, A. S. L. Rodrigues, W. Sechrest, A. Stattersfield, W. Strahm, and S. N. Stuart. 2004. Coverage Provided by the Global Protected-Area System: Is It Enough? BioScience 54:1081.
+            </div>
+            <div id="ref-buchanan2018" class="csl-entry" role="doc-biblioentry">
+            Buchanan, G. M., A. E. Beresford, M. Hebblewhite, F. J. Escobedo, H. M. D. Klerk, P. F. Donald, P. Escribano, L. P. Koh, J. Martínez-López, N. Pettorelli, A. K. Skidmore, Z. Szantoi, K. Tabor, M. Wegmann, and S. Wich. 2018. Free satellite data key to conservation. Science 361:139–140.
+            </div>
+            <div id="ref-burkhardMappingEcosystemService2012" class="csl-entry" role="doc-biblioentry">
+            Burkhard, B., F. Kroll, S. Nedkov, and F. Müller. 2012. Mapping ecosystem service supply, demand and budgets. Ecological Indicators 21:17–29.
+            </div>
+            <div id="ref-butchart2015" class="csl-entry" role="doc-biblioentry">
+            Butchart, S. H. M., M. Clarke, R. J. Smith, R. E. Sykes, J. P. W. Scharlemann, M. Harfoot, G. M. Buchanan, A. Angulo, A. Balmford, B. Bertzky, T. M. Brooks, K. E. Carpenter, M. T. Comeros-Raynal, J. Cornell, G. F. Ficetola, L. D. C. Fishpool, R. A. Fuller, J. Geldmann, H. Harwell, C. Hilton-Taylor, M. Hoffmann, A. Joolia, L. Joppa, N. Kingston, I. May, A. Milam, B. Polidoro, G. Ralph, N. Richman, C. Rondinini, D. B. Segan, B. Skolnik, M. D. Spalding, S. N. Stuart, A. Symes, J. Taylor, P. Visconti, J. E. M. Watson, L. Wood, and N. D. Burgess. 2015. Shortfalls and Solutions for Meeting National and Global Conservation Area Targets. Conservation Letters 8:329–337.
+            </div>
+            <div id="ref-cbd2004" class="csl-entry" role="doc-biblioentry">
+            CBD. 2004. CoP 7 decision VII/30. Strategic plan: future evaluation of progress. Goal 1 promote the conservation of the biological diversity of ecosystems, habitats and biomes; Target 1.1.
+            </div>
+            <div id="ref-cbd2010" class="csl-entry" role="doc-biblioentry">
+            CBD. 2010. The strategic plan for biodiversity 2011-2020 and the Aichi biodiversity targests.
+            </div>
+            <div id="ref-chapeMeasuringExtentEffectiveness2005" class="csl-entry" role="doc-biblioentry">
+            Chape, S., J. Harrison, M. Spalding, and I. Lysenko. 2005. Measuring the extent and effectiveness of protected areas as an indicator for meeting global biodiversity targets. Philosophical Transactions of the Royal Society B: Biological Sciences 360:443–455.
+            </div>
+            <div id="ref-christensen2009" class="csl-entry" role="doc-biblioentry">
+            Christensen, V., Z. Ferdaña, and J. Steenbeek. 2009. Spatial optimization of protected area placement incorporating ecological, social and economical criteria. Ecological Modelling 220:2583–2593.
+            </div>
+            <div id="ref-coadMeasuringImpactProtected2015" class="csl-entry" role="doc-biblioentry">
+            Coad, L., F. Leverington, K. Knights, J. Geldmann, A. Eassom, V. Kapos, N. Kingston, M. de Lima, C. Zamora, I. Cuardros, C. Nolte, N. D. Burgess, and M. Hockings. 2015. Measuring impact of protected area management interventions: Current and future use of the global database of protected area management effectiveness. Philosophical Transactions of the Royal Society B: Biological Sciences 370:20140281.
+            </div>
+            <div id="ref-cohen2004" class="csl-entry" role="doc-biblioentry">
+            Cohen, W. B., and S. N. Goward. 2004. Landsat’s role in ecological applications of remote sensing. Bioscience 54:535–545.
+            </div>
+            <div id="ref-defries2005" class="csl-entry" role="doc-biblioentry">
+            Defries, R., A. Hansen, A. Newton, and M. Hansen. 2005. Increasing isolation of protected areas in tropical forests over the past twenty years. Ecological Applications 15:19–26.
+            </div>
+            <div id="ref-dinersteinEcoregionBasedApproachProtecting2017" class="csl-entry" role="doc-biblioentry">
+            Dinerstein, E., D. Olson, A. Joshi, C. Vynne, N. D. Burgess, E. Wikramanayake, N. Hahn, S. Palminteri, P. Hedao, R. Noss, M. Hansen, H. Locke, E. C. Ellis, B. Jones, C. V. Barber, R. Hayes, C. Kormos, V. Martin, E. Crist, W. Sechrest, L. Price, J. E. M. Baillie, D. Weeden, K. Suckling, C. Davis, N. Sizer, R. Moore, D. Thau, T. Birch, P. Potapov, S. Turubanova, A. Tyukavina, N. de Souza, L. Pintea, J. C. Brito, O. A. Llewellyn, A. G. Miller, A. Patzelt, S. A. Ghazanfar, J. Timberlake, H. Klöser, Y. Shennan-Farpón, R. Kindt, J.-P. B. Lillesø, P. van Breugel, L. Graudal, M. Voge, K. F. Al-Shammari, and M. Saleem. 2017. An Ecoregion-Based Approach to Protecting Half the Terrestrial Realm. BioScience 67:534–545.
+            </div>
+            <div id="ref-dinerstein2019" class="csl-entry" role="doc-biblioentry">
+            Dinerstein, E., C. Vynne, E. Sala, A. R. Joshi, S. Fernando, T. E. Lovejoy, J. Mayorga, D. Olson, G. P. Asner, J. E. M. Baillie, N. D. Burgess, K. Burkart, R. F. Noss, Y. P. Zhang, A. Baccini, T. Birch, N. Hahn, L. N. Joppa, and E. Wikramanayake. 2019. A Global Deal For Nature: Guiding principles, milestones, and targets. Science Advances 5:eaaw2869.
+            </div>
+            <div id="ref-dubayahGlobalEcosystemDynamics2020" class="csl-entry" role="doc-biblioentry">
+            Dubayah, R., J. B. Blair, S. Goetz, L. Fatoyinbo, M. Hansen, S. Healey, M. Hofton, G. Hurtt, J. Kellner, S. Luthcke, J. Armston, H. Tang, L. Duncanson, S. Hancock, P. Jantz, S. Marselis, P. L. Patterson, W. Qi, and C. Silva. 2020. The Global Ecosystem Dynamics Investigation: High-resolution laser ranging of the Earth’s forests and topography. Science of Remote Sensing 1:100002.
+            </div>
+            <div id="ref-eccc2021" class="csl-entry" role="doc-biblioentry">
+            ECCC. 2021, May 3. Canada Target 1 Challenge.
+            </div>
+            <div id="ref-eklundWhatConstitutesUseful2019" class="csl-entry" role="doc-biblioentry">
+            Eklund, J., L. Coad, J. Geldmann, and M. Cabeza. 2019. What constitutes a useful measure of protected area effectiveness? A case study of management inputs and protected area impacts in Madagascar. Conservation Science and Practice 1:e107.
+            </div>
+            <div id="ref-environmentalreportingbc2016" class="csl-entry" role="doc-biblioentry">
+            Environmental Reporting BC. 2016. Protected Lands and Waters in British Columbia. http://www.env.gov.bc.ca/soe/indicators/land/protected-lands-and-waters.html.
+            </div>
+            <div id="ref-feeley2005" class="csl-entry" role="doc-biblioentry">
+            Feeley, K. J., T. W. Gillespie, and J. W. Terborgh. 2005. The Utility of Spectral Indices from Landsat ETM+ for Measuring the Structure and Composition of Tropical Dry Forests. Biotropica 37:508–519.
+            </div>
+            <div id="ref-ferraroCounterfactualThinkingImpact2009" class="csl-entry" role="doc-biblioentry">
+            Ferraro, P. J. 2009. Counterfactual thinking and impact evaluation in environmental policy. New Directions for Evaluation 2009:75–84.
+            </div>
+            <div id="ref-fraserMonitoringLandCover2009" class="csl-entry" role="doc-biblioentry">
+            Fraser, R. H., I. Olthof, and D. Pouliot. 2009. Monitoring land cover change and ecological integrity in Canada’s national parks. Remote Sensing of Environment 113:1397–1409.
+            </div>
+            <div id="ref-gao2014" class="csl-entry" role="doc-biblioentry">
+            Gao, T., M. Hedblom, T. Emilsson, and A. B. Nielsen. 2014. The role of forest stand structure as biodiversity indicator. Forest Ecology and Management 330:82–93.
+            </div>
+            <div id="ref-gastonEcologicalEffectivenessProtected2006" class="csl-entry" role="doc-biblioentry">
+            Gaston, K. J., K. Charman, S. F. Jackson, P. R. Armsworth, A. Bonn, R. A. Briers, C. S. Q. Callaghan, R. Catchpole, J. Hopkins, W. E. Kunin, J. Latham, P. Opdam, R. Stoneman, D. A. Stroud, and R. Tratt. 2006. The ecological effectiveness of protected areas: The United Kingdom. Biological Conservation 132:76–87.
+            </div>
+            <div id="ref-gastonEcologicalPerformanceProtected2008" class="csl-entry" role="doc-biblioentry">
+            Gaston, K. J., S. F. Jackson, L. Cantú-Salazar, and G. Cruz-Piñón. 2008. The Ecological Performance of Protected Areas. Annual Review of Ecology, Evolution, and Systematics 39:93–113.
+            </div>
+            <div id="ref-geldmannGloballevelAssessmentEffectiveness2019" class="csl-entry" role="doc-biblioentry">
+            Geldmann, J., A. Manica, N. D. Burgess, L. Coad, and A. Balmford. 2019. A global-level assessment of the effectiveness of protected areas at resisting anthropogenic pressures. Proceedings of the National Academy of Sciences 116:23209–23215.
+            </div>
+            <div id="ref-gillespie2005" class="csl-entry" role="doc-biblioentry">
+            Gillespie, T. W. 2005. Predicting Woody-Plant Species Richness in Tropical Dry Forests: A Case Study from South Florida, Usa. Ecological Applications 15:27–37.
+            </div>
+            <div id="ref-goetz2007" class="csl-entry" role="doc-biblioentry">
+            Goetz, S., D. Steinberg, R. Dubayah, and B. Blair. 2007. Laser remote sensing of canopy habitat heterogeneity as a predictor of bird species richness in an eastern temperate forest, USA. Remote Sensing of Environment 108:254–263.
+            </div>
+            <div id="ref-governmentofcanada2019" class="csl-entry" role="doc-biblioentry">
+            Government of Canada,. 2019, September 4. Canada National Park Act.
+            </div>
+            <div id="ref-guo2017" class="csl-entry" role="doc-biblioentry">
+            Guo, X., N. C. Coops, P. Tompalski, S. E. Nielsen, C. W. Bater, and J. John Stadt. 2017. Regional mapping of vegetation structure for biodiversity monitoring using airborne lidar data. Ecological Informatics 38:50–61.
+            </div>
+            <div id="ref-hamann2005" class="csl-entry" role="doc-biblioentry">
+            Hamann, A., P. Smets, A. D. Yanchuk, and S. N. Aitken. 2005. An ecogeographic framework for in situ conservation of forest trees in British Columbia. Canadian Journal of Forest Research 35:2553–2561.
+            </div>
+            <div id="ref-hansenMonitoringForestEcosystem2021" class="csl-entry" role="doc-biblioentry">
+            Hansen, A. J., B. P. Noble, J. Veneros, A. East, S. J. Goetz, C. Supples, J. E. M. Watson, P. A. Jantz, R. Pillay, W. Jetz, S. Ferrier, H. S. Grantham, T. D. Evans, J. Ervin, O. Venter, and A. L. S. Virnig. 2021. Toward monitoring forest ecosystem integrity within the post-2020 Global Biodiversity Framework. Conservation Letters 14:e12822.
+            </div>
+            <div id="ref-hansenTrendsVitalSigns2018" class="csl-entry" role="doc-biblioentry">
+            Hansen, A. J., and L. Phillips. 2018. Trends in vital signs for Greater Yellowstone: Application of a Wildland Health Index. Ecosphere 9:e02380.
+            </div>
+            <div id="ref-hansenHighResolutionGlobalMaps2013" class="csl-entry" role="doc-biblioentry">
+            Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A. Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A. Kommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend. 2013. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342:850–853.
+            </div>
+            <div id="ref-hazen2004" class="csl-entry" role="doc-biblioentry">
+            Hazen, H. D., and P. J. Anthamatten. 2004. Representation of ecological regions by protected areas at the global scale. Physical Geography 25:499–512.
+            </div>
+            <div id="ref-hermosillaIntegratedLandsatTime2015" class="csl-entry" role="doc-biblioentry">
+            Hermosilla, T., M. A. Wulder, J. C. White, N. C. Coops, and G. W. Hobart. 2015a. An integrated Landsat time series protocol for change detection and generation of annual gap-free surface reflectance composites. Remote Sensing of Environment 158:220–234.
+            </div>
+            <div id="ref-hermosilla2015" class="csl-entry" role="doc-biblioentry">
+            Hermosilla, T., M. A. Wulder, J. C. White, N. C. Coops, and G. W. Hobart. 2015b. Regional detection, characterization, and attribution of annual forest change from 1984 to 2012 using landsat-derived time-series metrics. Remote Sensing of Environment 170:121132.
+            </div>
+            <div id="ref-hermosillaDisturbanceInformedAnnualLand2018" class="csl-entry" role="doc-biblioentry">
+            Hermosilla, T., M. A. Wulder, J. C. White, N. C. Coops, and G. W. Hobart. 2018. Disturbance-Informed Annual Land Cover Classification Maps of Canada’s Forested Ecosystems for a 29-Year Landsat Time Series. Canadian Journal of Remote Sensing 44:67–87.
+            </div>
+            <div id="ref-hermosillaMassDataProcessing2016" class="csl-entry" role="doc-biblioentry">
+            Hermosilla, T., M. A. Wulder, J. C. White, N. C. Coops, G. W. Hobart, and L. B. Campbell. 2016. Mass data processing of time series Landsat imagery: Pixels to data products for forest monitoring. International Journal of Digital Earth 9:1035–1054.
+            </div>
+            <div id="ref-joppa2009" class="csl-entry" role="doc-biblioentry">
+            Joppa, L. N., and A. Pfaff. 2009. High and Far: Biases in the Location of Protected Areas. PLOS ONE 4:e8273.
+            </div>
+            <div id="ref-kerr2003" class="csl-entry" role="doc-biblioentry">
+            Kerr, J. T., and M. Ostrovsky. 2003. From space to species: ecological applications for remote sensing. Trends in Ecology &amp; Evolution 18:299–305.
+            </div>
+            <div id="ref-lemieux2005" class="csl-entry" role="doc-biblioentry">
+            Lemieux, C. J., and D. J. Scott. 2005. Climate change, biodiversity conservation and protected area planning in Canada. The Canadian Geographer / Le Géographe canadien 49:384–397.
+            </div>
+            <div id="ref-lim2003" class="csl-entry" role="doc-biblioentry">
+            Lim, K., P. Treitz, M. Wulder, B. St-Onge, and M. Flood. 2003. LiDAR remote sensing of forest structure. Progress in Physical Geography: Earth and Environment 27:88–106.
+            </div>
+            <div id="ref-lucas2011" class="csl-entry" role="doc-biblioentry">
+            Lucas, R., K. Medcalf, A. Brown, P. Bunting, J. Breyer, D. Clewley, S. Keyworth, and P. Blackmore. 2011. Updating the Phase 1 habitat map of Wales, UK, using satellite sensor data. ISPRS Journal of Photogrammetry and Remote Sensing 66:81–102.
+            </div>
+            <div id="ref-matasciThreeDecadesForest2018" class="csl-entry" role="doc-biblioentry">
+            Matasci, G., T. Hermosilla, M. A. Wulder, J. C. White, N. C. Coops, G. W. Hobart, D. K. Bolton, P. Tompalski, and C. W. Bater. 2018a. Three decades of forest structural dynamics over Canada’s forested ecosystems using Landsat time-series and lidar plots. Remote Sensing of Environment 216:697–714.
+            </div>
+            <div id="ref-matasciLargeareaMappingCanadian2018" class="csl-entry" role="doc-biblioentry">
+            Matasci, G., T. Hermosilla, M. A. Wulder, J. C. White, N. C. Coops, G. W. Hobart, and H. S. J. Zald. 2018b. Large-area mapping of Canadian boreal forest cover, height, biomass and other structural attributes using Landsat composites and lidar plots. Remote Sensing of Environment 209:90–106.
+            </div>
+            <div id="ref-maxwell2020" class="csl-entry" role="doc-biblioentry">
+            Maxwell, S. L., V. Cazalis, N. Dudley, M. Hoffmann, A. S. L. Rodrigues, S. Stolton, P. Visconti, S. Woodley, N. Kingston, E. Lewis, M. Maron, B. B. N. Strassburg, A. Wenger, H. D. Jonas, O. Venter, and J. E. M. Watson. 2020. Area-based conservation in the twenty-first century. Nature 586:217–227.
+            </div>
+            <div id="ref-mcdermid2005" class="csl-entry" role="doc-biblioentry">
+            McDermid, G. J., S. E. Franklin, and E. F. LeDrew. 2005. Remote sensing for large-area habitat mapping. Progress in Physical Geography: Earth and Environment 29:449–474.
+            </div>
+            <div id="ref-meidingerEcosystemsBritishColumbia1991" class="csl-entry" role="doc-biblioentry">
+            Meidinger, D. V., and J. Pojar, editors. 1991. Ecosystems of British Columbia. Research Branch, Ministry of Forests, Victoria, B.C.
+            </div>
+            <div id="ref-myneni2001" class="csl-entry" role="doc-biblioentry">
+            Myneni, R. B., J. Dong, C. J. Tucker, R. K. Kaufmann, P. E. Kauppi, J. Liski, L. Zhou, V. Alexeyev, and M. K. Hughes. 2001. A large carbon sink in the woody biomass of northern forests. Proceedings of the National Academy of Sciences of the United States of America 98:14784–14789.
+            </div>
+            <div id="ref-nagendra2001" class="csl-entry" role="doc-biblioentry">
+            Nagendra, H. 2001. Using remote sensing to assess biodiversity. International Journal of Remote Sensing 22:2377–2400.
+            </div>
+            <div id="ref-nagendraParksWorkImpact2008" class="csl-entry" role="doc-biblioentry">
+            Nagendra, H. 2008. Do parks work? Impact of protected areas on land cover clearing. Ambio 37:330–337.
+            </div>
+            <div id="ref-nagendraRemoteSensingConservation2013" class="csl-entry" role="doc-biblioentry">
+            Nagendra, H., R. Lucas, J. P. Honrado, R. H. G. Jongman, C. Tarantino, M. Adamo, and P. Mairota. 2013. Remote sensing for conservation monitoring: Assessing protected areas, habitat extent, habitat condition, species diversity, and threats. Ecological Indicators 33:45–59.
+            </div>
+            <div id="ref-nagendra2010" class="csl-entry" role="doc-biblioentry">
+            Nagendra, H., D. Rocchini, R. Ghate, B. Sharma, and S. Pareeth. 2010. Assessing Plant Diversity in a Dry Tropical Forest: Comparing the Utility of Landsat and Ikonos Satellite Images. Remote Sensing 2:478–496.
+            </div>
+            <div id="ref-neuenschwander2020" class="csl-entry" role="doc-biblioentry">
+            Neuenschwander, A., E. Guenther, J. C. White, L. Duncanson, and P. Montesano. 2020. Validation of ICESat-2 terrain and canopy heights in boreal forests. Remote Sensing of Environment 251:112110.
+            </div>
+            <div id="ref-noss1999" class="csl-entry" role="doc-biblioentry">
+            Noss, R. F. 1999. Assessing and monitoring forest biodiversity: A suggested framework and indicators. Forest Ecology and Management 115:135–146.
+            </div>
+            <div id="ref-olthofUsingSatelliteRemote2006" class="csl-entry" role="doc-biblioentry">
+            Olthof, I., D. Pouliot, R. Fraser, A. Clouston, S. Wang, W. Chen, J. Orazietti, J. Poitevin, D. Mclennan, J. Kerr, and M. Sawada. 2006. Using Satellite Remote Sensing to Assess and Monitor Ecosystem Integrity and Climate Change in Canadas National Parks. 2006 IEEE International Symposium on Geoscience and Remote Sensing. IEEE.
+            </div>
+            <div id="ref-paillet2010" class="csl-entry" role="doc-biblioentry">
+            Paillet, Y., L. Berges, J. Hjalten, P. Odor, C. Avon, M. Bernhardt-Roemermann, R.-J. Bijlsma, L. De Bruyn, M. Fuhr, U. Grandin, R. Kanka, L. Lundin, S. Luque, T. Magura, S. Matesanz, I. Meszaros, M.-. Teresa Sebastia, W. Schmidt, T. Standovar, B. Tothmeresz, A. Uotila, F. Valladares, K. Vellak, and R. Virtanen. 2010. Biodiversity differences between managed and unmanaged forests: Meta-analysis of species richness in europe. Conservation Biology 24:101–112.
+            </div>
+            <div id="ref-parkscanadaEcologicalIntegrity2019" class="csl-entry" role="doc-biblioentry">
+            Parks Canada. 2019. Ecological Integrity. https://www.pc.gc.ca/en/nature/science/conservation/ie-ei.
+            </div>
+            <div id="ref-parmenterLandUseLand2003" class="csl-entry" role="doc-biblioentry">
+            Parmenter, A. W., A. Hansen, R. E. Kennedy, W. Cohen, U. Langner, R. Lawrence, B. Maxwell, A. Gallant, and R. Aspinall. 2003. Land use and land cover change in the Greater Yellowstone Ecosystem: 1975. Ecological Applications 13:687–703.
+            </div>
+            <div id="ref-parrishAreWeConserving2003" class="csl-entry" role="doc-biblioentry">
+            Parrish, J. D., D. P. Braun, and R. S. Unnasch. 2003. Are We Conserving What We Say We Are? Measuring Ecological Integrity within Protected Areas. BioScience 53:851.
+            </div>
+            <div id="ref-pereira2013" class="csl-entry" role="doc-biblioentry">
+            Pereira, H. M., S. Ferrier, M. Walters, G. N. Geller, R. H. G. Jongman, R. J. Scholes, M. W. Bruford, N. Brummitt, S. H. M. Butchart, A. C. Cardoso, N. C. Coops, E. Dulloo, D. P. Faith, J. Freyhof, R. D. Gregory, C. Heip, R. Hoft, G. Hurtt, W. Jetz, D. S. Karp, M. A. McGeoch, D. Obura, Y. Onoda, N. Pettorelli, B. Reyers, R. Sayre, J. P. W. Scharlemann, S. N. Stuart, E. Turak, M. Walpole, and M. Wegmann. 2013. Essential Biodiversity Variables. Science 339:277–278.
+            </div>
+            <div id="ref-pojarBiogeoclimaticEcosystemClassification1987" class="csl-entry" role="doc-biblioentry">
+            Pojar, J., K. Klinka, and D. V. Meidinger. 1987. Biogeoclimatic ecosystem classification in British Columbia. Forest Ecology and Management 22:119–154.
+            </div>
+            <div id="ref-potapovLandsatAnalysisReady2020" class="csl-entry" role="doc-biblioentry">
+            Potapov, P., M. C. Hansen, I. Kommareddy, A. Kommareddy, S. Turubanova, A. Pickens, B. Adusei, A. Tyukavina, and Q. Ying. 2020. Landsat Analysis Ready Data for Global Land Cover and Land Cover Change Mapping. Remote Sensing 12:426.
+            </div>
+            <div id="ref-potapovMappingGlobalForest2021" class="csl-entry" role="doc-biblioentry">
+            Potapov, P., X. Li, A. Hernandez-Serna, A. Tyukavina, M. C. Hansen, A. Kommareddy, A. Pickens, S. Turubanova, H. Tang, C. E. Silva, J. Armston, R. Dubayah, J. B. Blair, and M. Hofton. 2021. Mapping global forest canopy height through integration of GEDI and Landsat data. Remote Sensing of Environment 253:112165.
+            </div>
+            <div id="ref-pôças2011" class="csl-entry" role="doc-biblioentry">
+            Pôças, I., M. Cunha, and L. S. Pereira. 2011. Remote sensing based indicators of changes in a mountain rural landscape of Northeast Portugal. Applied Geography 31:871–880.
+            </div>
+            <div id="ref-R-base" class="csl-entry" role="doc-biblioentry">
+            R Core Team. 2021. R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria.
+            </div>
+            <div id="ref-ribasGlobalComparativeAnalysis2020" class="csl-entry" role="doc-biblioentry">
+            Ribas, L. G. dos S., R. L. Pressey, R. Loyola, and L. M. Bini. 2020. A global comparative analysis of impact evaluation methods in estimating the effectiveness of protected areas. Biological Conservation 246:108595.
+            </div>
+            <div id="ref-rocchini2010" class="csl-entry" role="doc-biblioentry">
+            Rocchini, D., N. Balkenhol, G. A. Carter, G. M. Foody, T. W. Gillespie, K. S. He, S. Kark, N. Levin, K. Lucas, M. Luoto, H. Nagendra, J. Oldeland, C. Ricotta, J. Southworth, and M. Neteler. 2010. Remotely sensed spectral heterogeneity as a proxy of species diversity: Recent advances and open challenges. Ecological Informatics 5:318–329.
+            </div>
+            <div id="ref-running2004" class="csl-entry" role="doc-biblioentry">
+            Running, S. W., R. R. Nemani, F. A. Heinsch, M. S. Zhao, M. Reeves, and H. Hashimoto. 2004. A continuous satellite-derived measure of global terrestrial primary production. Bioscience 54:547–560.
+            </div>
+            <div id="ref-skidmore2021" class="csl-entry" role="doc-biblioentry">
+            Skidmore, A. K., N. C. Coops, E. Neinavaz, A. Ali, M. E. Schaepman, M. Paganini, W. D. Kissling, P. Vihervaara, R. Darvishzadeh, H. Feilhauer, M. Fernandez, N. Fernández, N. Gorelick, I. Geijzendorffer, U. Heiden, M. Heurich, D. Hobern, S. Holzwarth, F. E. Muller-Karger, R. Van De Kerchove, A. Lausch, P. J. Leitão, M. C. Lock, C. A. Mücher, B. O’Connor, D. Rocchini, W. Turner, J. K. Vis, T. Wang, M. Wegmann, and V. Wingate. 2021. Priority list of biodiversity metrics to observe from space. Nature Ecology &amp; Evolution.
+            </div>
+            <div id="ref-soverelCharacterizingForestFragmentation2010" class="csl-entry" role="doc-biblioentry">
+            Soverel, N. O., N. C. Coops, J. C. White, and M. A. Wulder. 2010. Characterizing the forest fragmentation of Canada’s national parks. Environmental Monitoring and Assessment 164:481–499.
+            </div>
+            <div id="ref-tachikawa2011" class="csl-entry" role="doc-biblioentry">
+            Tachikawa, T., M. Kaku, A. Iwasaki, D. B. Gesch, M. J. Oimoen, Z. Zhang, J. J. Danielson, T. Krieger, B. Curtis, J. Haase, M. Abrams, and C. Carabajal. 2011. ASTER global digital elevation model version 2 - summary of validation results. Page 27.
+            </div>
+            <div id="ref-R-bcmaps" class="csl-entry" role="doc-biblioentry">
+            Teucher, A., S. Hazlitt, and S. Albers. 2021. Bcmaps: Map layers and spatial utilities for british columbia.
+            </div>
+            <div id="ref-turner2015" class="csl-entry" role="doc-biblioentry">
+            Turner, W., C. Rondinini, N. Pettorelli, B. Mora, A. K. Leidner, Z. Szantoi, G. Buchanan, S. Dech, J. Dwyer, M. Herold, L. P. Koh, P. Leimgruber, H. Taubenboeck, M. Wegmann, M. Wikelski, and C. Woodcock. 2015. Free and open-access satellite data are key to biodiversity conservation. Biological Conservation 182:173–176.
+            </div>
+            <div id="ref-turner2003" class="csl-entry" role="doc-biblioentry">
+            Turner, W., S. Spector, N. Gardiner, M. Fladeland, E. Sterling, and M. Steininger. 2003. Remote sensing for biodiversity science and conservation. Trends in Ecology &amp; Evolution 18:306–314.
+            </div>
+            <div id="ref-venter2014" class="csl-entry" role="doc-biblioentry">
+            Venter, O., R. A. Fuller, D. B. Segan, J. Carwardine, T. Brooks, S. H. M. Butchart, M. Di Marco, T. Iwamura, L. Joseph, D. O’Grady, H. P. Possingham, C. Rondinini, R. J. Smith, M. Venter, and J. E. M. Watson. 2014. Targeting Global Protected Area Expansion for Imperiled Biodiversity. PLoS Biology 12:e1001891.
+            </div>
+            <div id="ref-venter2018" class="csl-entry" role="doc-biblioentry">
+            Venter, O., A. Magrach, N. Outram, C. J. Klein, H. P. Possingham, M. Di Marco, and J. E. M. Watson. 2018. Bias in protected-area location and its effects on long-term aspirations of biodiversity conventions. Conservation Biology: The Journal of the Society for Conservation Biology 32:127–134.
+            </div>
+            <div id="ref-wang2020" class="csl-entry" role="doc-biblioentry">
+            Wang, T., P. Smets, C. Chourmouzis, S. N. Aitken, and D. Kolotelo. 2020. Conservation status of native tree species in British Columbia. Global Ecology and Conservation 24:e01362.
+            </div>
+            <div id="ref-watsonPerformancePotentialProtected2014" class="csl-entry" role="doc-biblioentry">
+            Watson, J. E. M., N. Dudley, D. B. Segan, and M. Hockings. 2014. The performance and potential of protected areas. Nature 515:67–73.
+            </div>
+            <div id="ref-whitePixelBasedImageCompositing2014" class="csl-entry" role="doc-biblioentry">
+            White, Joanne. C., M. A. Wulder, G. W. Hobart, J. E. Luther, T. Hermosilla, P. Griffiths, N. C. Coops, R. J. Hall, P. Hostert, A. Dyk, and L. Guindon. 2014. Pixel-Based Image Compositing for Large-Area Dense Time Series Applications and Science. Canadian Journal of Remote Sensing 40:192–212.
+            </div>
+            <div id="ref-wiens2009" class="csl-entry" role="doc-biblioentry">
+            Wiens, J., R. Sutter, M. Anderson, J. Blanchard, A. Barnett, N. aguilar-amuchastegui, C. Avery, and S. Laine. 2009. Selecting and conserving lands for biodiversity: The role of remote sensing. Remote Sensing of Environment 113:1370–1381.
+            </div>
+            <div id="ref-woodleyMonitoringMeasuringEcosystem1993" class="csl-entry" role="doc-biblioentry">
+            Woodley, S. 1993. Monitoring and Measuring Ecosystem Integrity in Canadian National Parks. Ecological Integrity and the Management of Ecosystems. Taylor &amp; Francis.
+            </div>
+            <div id="ref-wulderOpeningArchiveHow2012" class="csl-entry" role="doc-biblioentry">
+            Wulder, M. A., J. G. Masek, W. B. Cohen, T. R. Loveland, and C. E. Woodcock. 2012a. Opening the archive: How free data has enabled the science and monitoring promise of Landsat. Remote Sensing of Environment 122:2–10.
+            </div>
+            <div id="ref-wulder2016" class="csl-entry" role="doc-biblioentry">
+            Wulder, M. A., J. C. White, T. R. Loveland, C. E. Woodcock, A. S. Belward, W. B. Cohen, E. A. Fosnight, J. Shaw, J. G. Masek, and D. P. Roy. 2016. The global Landsat archive: Status, consolidation, and direction. Remote Sensing of Environment 185:271–283.
+            </div>
+            <div id="ref-wulderLidarSamplingLargearea2012" class="csl-entry" role="doc-biblioentry">
+            Wulder, M. A., J. C. White, R. F. Nelson, E. Næsset, H. O. Ørka, N. C. Coops, T. Hilker, C. W. Bater, and T. Gobakken. 2012b. Lidar sampling for large-area forest characterization: A review. Remote Sensing of Environment 121:196–209.
+            </div>
+            <div id="ref-zanagadaniele2021" class="csl-entry" role="doc-biblioentry">
+            Zanaga, D., R. Van De Kerchove, W. De Keersmaecker, N. Souverijns, C. Brockmann, R. Quast, J. Wevers, A. Grosu, A. Paccini, S. Vergnaud, O. Cartus, M. Santoro, S. Fritz, I. Georgieva, M. Lesiv, S. Carter, M. Herold, L. Li, N.-E. Tsendbazar, F. Ramoino, and O. Arino. 2021. ESA WorldCover 10 m 2020 v100.
+            </div>
+            <div id="ref-zhang2003" class="csl-entry" role="doc-biblioentry">
+            Zhang, X. Y., M. A. Friedl, C. B. Schaaf, A. H. Strahler, J. C. F. Hodges, F. Gao, B. C. Reed, and A. Huete. 2003. Monitoring vegetation phenology using MODIS. Remote Sensing of Environment 84:471–475.
             </div>
             </div>
         </article>
@@ -355,9 +550,9 @@
     <footer>
         <div class="container">
             <h2>Affiliations</h2> 
-            <sup>1</sup>&nbsp;Université de Montréal; <sup>2</sup>&nbsp;Québec Centre for Biodiversity Sciences; <sup>3</sup>&nbsp;Inn of the Prancing Pony; <sup>4</sup>&nbsp;Fellowship of the Ring; <sup>5</sup>&nbsp;Green Dragon Inn
+            <sup>1</sup>&nbsp;Department of Forest Resources Management, University of British Columbia; <sup>2</sup>&nbsp;Canadian Forest Service (Pacific Forestry Centre); <sup>3</sup>&nbsp;BC Parks, Ministry of Environment and Climate Change Strategy
             <br />
-            <sup>‡</sup>&nbsp;These authors contributed equally to the work
+            
         </div>
     </footer>
     
