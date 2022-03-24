@@ -88,9 +88,7 @@ T-tests for PA vs UA were conducted on all pixels selected for analysis by BEC s
 
 # Results
 
-### Ecosystems, Land Cover, and Disturbances
-
-
+## Ecosystems, Land Cover, and Disturbances
 
 British Columbia's ecosystems are protected at varying rates across the province (@fig:bec-conch). Of the 16 ecosystems present in BC, seven are protected at rates above the Aichi biodiversity target (17%). Only two zones (Boreal Altai Fescue Alpine and Interior Mountain-heather Alpine) are currently protected at rates above the Canadian 2025 protection targets (25%). Zones with Douglas-fir (*Pseudotsuga menziesii*) as dominant old-growth components (Coastal Douglas-fir and Interior Douglas-fir) are the least proportionally represented zones in British Columbia, with 4.9% and 6.4% protected, respectively (@fig:bec-conch).
 
@@ -116,7 +114,7 @@ Overall, the burned area of forested cells is similar between PA (2.5% overall) 
 
 ![Proportion of area disturbed by latitude from 1984 to 2019 in protected areas (a), and unprotected areas (b). Proportion of terrestrial area that is protected at each latitude (c).](figures/latitude_disturbance_plot.png){#fig:lat-dist}
 
-### Forest Structural Attributes
+## Forest Structural Attributes
 
 @fig:t-test-plot shows the subzonal proportional significance (*p \< 0.01*) grouped by ecosystem for the 496 comparisons of forest structural variables. Higher percentages confirm ecosystems which had increased number of dissimilar subzones for the specific indicator, and shows that at least half of all subzones in each ecosystem are significantly different (the exception being Ponderosa Pine, which consists of a single subzone that is not significantly different in canopy structure). Median proportional significance values for canopy height, canopy cover, and aboveground biomass are universally significantly different between PA and UA within the same ecosystem.
 
@@ -127,26 +125,26 @@ Forest structural attributes vary between PA and UA in BC (@fig:structure-3d-sca
 |      Zone     |      Elevation Covariance     |      Elevation Covariance     |      Elevation Covariance     |      Canopy Cover (%)     |      Canopy Cover (%)     |      Canopy Cover (%)     |      Canopy Height (m)     |      Canopy Height (m)     |      Canopy Height (m)     |
 |:-------------:|:-----------------------------:|:-----------------------------:|:-----------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:--------------------------:|:--------------------------:|:--------------------------:|
 |               |               PA              |               UA              |          % Difference         |             PA            |             UA            |        % Difference       |              PA            |              UA            |         % Difference       |
-|      BAFA     |              0.39             |              0.39             |              0.01%            |           46.94%          |           48.47%          |            3.17%          |      **    14.03   **      |      **    13.11   **      |       **    -7%   **       |
-|       BG      |              0.38             |              0.38             |             -1.41%            |      **    61.8%   **     |     **    58.71%   **     |     **    -5.26%   **     |      **    23.00   **      |      **    21.58   **      |      **    -6.59%   **     |
+|      BAFA     |              0.39             |              0.39             |              0.01%            |           46.94%          |           48.47%          |            3.17%          |      **14.03**      |      **13.11**      |       **-7%**       |
+|       BG      |              0.38             |              0.38             |             -1.41%            |      **61.8%**     |     **58.71%**     |     **-5.26%**     |      **23.00**      |      **21.58**      |      **-6.59%**     |
 |      BWBS     |              0.37             |              0.38             |              2.62%            |           67.18%          |           64.72%          |            -3.8%          |            15.83           |            15.69           |            -0.9%           |
-|       CDF     |        **    0.31   **        |        **    0.33   **        |        **    6.35%   **       |     **    89.38%   **     |     **    83.69%   **     |     **    -6.79%   **     |            27.35           |            26.58           |            -2.89%          |
+|       CDF     |        **0.31**        |        **0.33**        |        **6.35%**       |     **89.38%**     |     **83.69%**     |     **-6.79%**     |            27.35           |            26.58           |            -2.89%          |
 |       CMA     |              0.38             |              0.39             |              1.63%            |           62.65%          |           64.01%          |            2.13%          |            19.91           |            20.01           |            0.48%           |
 |       CWH     |              0.34             |              0.33             |             -3.83%            |           83.94%          |           85.26%          |            1.55%          |            21.58           |            22.34           |             3.4%           |
-|      ESSF     |              0.37             |              0.37             |              0.34%            |      **    61.7%   **     |     **    64.97%   **     |      **    5.04%   **     |            18.90           |            18.91           |            0.07%           |
+|      ESSF     |              0.37             |              0.37             |              0.34%            |      **61.7%**     |     **64.97%**     |      **5.04%**     |            18.90           |            18.91           |            0.07%           |
 |       ICH     |              0.36             |              0.36             |             -1.75%            |           81.24%          |           83.52%          |            2.73%          |            22.39           |            22.18           |            -0.98%          |
 |       IDF     |              0.36             |              0.36             |              -0.3%            |           67.42%          |            67.9%          |            0.71%          |            21.98           |            22.49           |            2.29%           |
-|       IMA     |              0.38             |              0.36             |             -3.72%            |     **    68.17%   **     |     **    62.07%   **     |     **    -9.83%   **     |      **    22.53   **      |      **    21.06   **      |      **    -6.98%   **     |
-|       MH      |              0.36             |              0.36             |              0.25%            |           76.87%          |           77.85%          |            1.26%          |      **    19.42   **      |      **    18.31   **      |      **    -6.07%   **     |
+|       IMA     |              0.38             |              0.36             |             -3.72%            |     **68.17%**     |     **62.07%**     |     **-9.83%**     |      **22.53**      |      **21.06**      |      **-6.98%**     |
+|       MH      |              0.36             |              0.36             |              0.25%            |           76.87%          |           77.85%          |            1.26%          |      **19.42**      |      **18.31**      |      **-6.07%**     |
 |       MS      |              0.35             |              0.35             |              0.31%            |           57.99%          |           60.41%          |            4.01%          |            20.64           |            20.86           |            1.04%           |
-|       PP      |              0.36             |              0.37             |              0.25%            |     **    57.92%   **     |     **    48.93%   **     |     **    -18.36%   **    |      **    19.88   **      |      **    18.03   **      |     **    -10.24%   **     |
+|       PP      |              0.36             |              0.37             |              0.25%            |     **57.92%**     |     **48.93%**     |     **-18.36%**    |      **19.88**      |      **18.03**      |     **-10.24%**     |
 |      SBPS     |              0.36             |              0.35             |             -1.97%            |           32.98%          |           34.63%          |            4.76%          |            18.00           |            18.70           |            3.75%           |
-|       SBS     |              0.37             |              0.37             |              -0.4%            |     **    62.24%   **     |     **    67.25%   **     |      **    7.45%   **     |            18.51           |            18.67           |            0.82%           |
+|       SBS     |              0.37             |              0.37             |              -0.4%            |     **62.24%**     |     **67.25%**     |      **7.45%**     |            18.51           |            18.67           |            0.82%           |
 |       SWB     |              0.39             |              0.39             |             -1.22%            |           56.67%          |           57.71%          |            1.8%           |            13.78           |            13.67           |            -0.83%          |
 
 : Mean values of forest structural attributes in protected areas (PA), unprotected areas (UA), as well as the percent difference between the means. Zones with more than a 5% difference are bolded.{#tbl:vector-table}
 
-![Z-Scores of forest structural attributes in PA, UA, and their differences across BEC zones in BC.](figures/fstruct_zscores.png){#fig:structure-3d-scatter}
+![Z-Scores of forest structural attributes in PA, UA, and their differences across BEC zones in BC.](figures/fstruct_zscores.png) {#fig:structure-3d-scatter}
 
 # Discussion
 
