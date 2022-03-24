@@ -23,7 +23,28 @@ As Canada progresses towards the national goal of 25% of terrestrial area protec
 
 ## Study Area
 
-The province of British Columbia, Canada, covers 94.4 million ha, of which approximately 64% is forested [@bcministryofforestsBritishColumbiaForests2003], and encapsulates a wide variety of biomes and ecosystems. This diversity of ecosystems is in part due to the large area as well as variations in topography and climate. The existing Biogeoclimatic Ecosystem Classification (BEC) system disaggregates BC ecosystems into zones [@pojarBiogeoclimaticEcosystemClassification1987]. The broadest classification delineates 16 zones, which are further broken down into subzones, variants, and phases based on microclimate, precipitation, and topography [@meidingerEcosystemsBritishColumbia1991; @pojarBiogeoclimaticEcosystemClassification1987]. As a result, BEC zones vary widely in size (ranging from 0.25 million ha to 17.5 million ha), and in number of subzones (from 1 to 43; see Table 1).
+The province of British Columbia, Canada, covers 94.4 million ha, of which approximately 64% is forested [@bcministryofforestsBritishColumbiaForests2003], and encapsulates a wide variety of biomes and ecosystems. This diversity of ecosystems is in part due to the large area as well as variations in topography and climate. The existing Biogeoclimatic Ecosystem Classification (BEC) system disaggregates BC ecosystems into zones [@pojarBiogeoclimaticEcosystemClassification1987]. The broadest classification delineates 16 zones, which are further broken down into subzones, variants, and phases based on microclimate, precipitation, and topography [@meidingerEcosystemsBritishColumbia1991; @pojarBiogeoclimaticEcosystemClassification1987]. As a result, BEC zones vary widely in size (ranging from 0.25 million ha to 17.5 million ha), and in number of subzones (from 1 to 43; see @tab:bec-table).
+
+| Zone        | Zone Name                                | # of Subzones | Area (ha)         | % Protected  |
+|-------------|------------------------------------------|---------------|-------------------|--------------|
+|     BAFA    |     Boreal Altai Fescue Alpine           |     2         |     6,286,778     |     30.1%    |
+|     BG      |     Bunchgrass                           |     2         |     257,072       |     11.8%    |
+|     BWBS    |     Boreal White and Black Spruce        |     5         |     16,404,142    |     8.6%     |
+|     CDF     |     Coastal Douglas-fir                  |     1         |     251,232       |     4.8%     |
+|     CMA     |     Coastal Mountain-heather Alpine      |     3         |     3,574,039     |     17.9%    |
+|     CWH     |     Coastal Western Hemlock              |     10        |     10,795,067    |     19.5%    |
+|     ESSF    |     Engelmann Spruce -- Subalpine Fir    |     43        |     17,465,113    |     17.8%    |
+|     ICH     |     Interior Cedar -- Hemlock            |     12        |     5,538,842     |     10.2%    |
+|     IDF     |     Interior Douglas-fir                 |     12        |     4,488,085     |     5.9%     |
+|     IMA     |     Interior Mountain-heather Alpine     |     2         |     1,257,949     |     29.2%    |
+|     MH      |     Mountain Hemlock                     |     6         |     4,059,301     |     19.8%    |
+|     MS      |     Montane Spruce                       |     8         |     2,863,394     |     9.4%     |
+|     PP      |     Ponderosa Pine                       |     1         |     294,985       |     7.1%     |
+|     SBPS    |     Sub-Boreal Pine -- Spruce            |     4         |     2,265,365     |     9.5%     |
+|     SBS     |     Sub-Boreal Spruce                    |     11        |     10,337,497    |     6.7%     |
+|     SWB     |     Spruce -- Willow -- Birch            |     6         |     8,655,855     |     23.3%    |
+
+: Number of subzones, total area, and percent protected by BEC Zone. {#tbl:bec-table}
 
 Both the BC [@bcparks2012] and Canada-wide [@governmentofcanada2019] PA mandates commit to conserving ecological integrity across the network. The PA network in BC is designed to serve both ecological conservation and human recreation aims [@bcparks2012] and consists of a network of PA and PA complexes (multiple nearby PA which share the same conservation goals), with large variations in size, ranging from 0.02 to 987,899 ha (@fig:study-area).
 
@@ -101,7 +122,240 @@ Overall, the burned area of forested cells is similar between PA (2.5% overall) 
 
 ![Boxplot of proportion of ecosystem subzone which have significant p-values from a two-tailed t-test with the Bonferroni correction (n = 496) applied at a significance level of 0.05. Boxplot vertical lines indicate the first quartile, the median, and the third quartile. The whisker extends from the first quartile to the smallest value no further than 1.5 * interquartile range from the first quartile.](figures/t_tests_scatter.png){#fig:t-test-plot}
 
-Forest structural attributes vary between PA and UA in BC (@fig:structure-3d-scatter). The largest differences between PA and UA are found in canopy structure in the Coastal Douglas-fir BEC zone, with the protected area having much higher canopy structure values. As shown in @fig:t-test-plot, forests are commonly significantly different when comparing PA vs UA across all attributes. When examining the forests on an BEC zone level, only one BEC zone has a \>5% difference in vertical forest structure (co-efficient of variation in vegetation returns), six BEC zones have \>5% difference in canopy cover, and five BEC zones have a \>5% difference in canopy height. Ponderosa pine has large differences in canopy cover and canopy height (\>5%), but minor differences in elevation covariance (only 0.25%; Table 2). PA in the Ponderosa Pine, Interior Mountain Heather Alpine, and Coastal Douglas-fir have more aboveground biomass than in UA in corresponding areas (@fig:structure-3d-scatter).
+Forest structural attributes vary between PA and UA in BC (@fig:structure-3d-scatter). The largest differences between PA and UA are found in canopy structure in the Coastal Douglas-fir BEC zone, with the protected area having much higher canopy structure values. As shown in @fig:t-test-plot, forests are commonly significantly different when comparing PA vs UA across all attributes. When examining the forests on an BEC zone level, only one BEC zone has a \>5% difference in vertical forest structure (co-efficient of variation in vegetation returns), six BEC zones have \>5% difference in canopy cover, and five BEC zones have a \>5% difference in canopy height. Ponderosa pine has large differences in canopy cover and canopy height (\>5%), but minor differences in elevation covariance (only 0.25%; @tbl:vector-table). PA in the Ponderosa Pine, Interior Mountain Heather Alpine, and Coastal Douglas-fir have more aboveground biomass than in UA in corresponding areas (@fig:structure-3d-scatter).
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky">    <br>Zone    </th>
+    <th class="tg-0pky">    <br>Elevation Covariance    </th>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky">    <br>Canopy Cover (%)    </th>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky">    <br>Canopy Height (m)    </th>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky"></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">    <br>PA    </td>
+    <td class="tg-0pky">    <br>UA    </td>
+    <td class="tg-0pky">    <br>% Difference    </td>
+    <td class="tg-0pky">    <br>PA    </td>
+    <td class="tg-0pky">    <br>UA    </td>
+    <td class="tg-0pky">    <br>% Difference    </td>
+    <td class="tg-0pky">    <br>PA    </td>
+    <td class="tg-0pky">    <br>UA    </td>
+    <td class="tg-0pky">    <br>% Difference    </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>BAFA   </td>
+    <td class="tg-0pky">   <br>0.39   </td>
+    <td class="tg-0pky">   <br>0.39   </td>
+    <td class="tg-0pky">   <br>0.01%   </td>
+    <td class="tg-0pky">   <br>46.94%   </td>
+    <td class="tg-0pky">   <br>48.47%   </td>
+    <td class="tg-0pky">   <br>3.17%   </td>
+    <td class="tg-0pky">   <br>14.03   </td>
+    <td class="tg-0pky">   <br>13.11   </td>
+    <td class="tg-0pky">   <br>-7%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>BG   </td>
+    <td class="tg-0pky">   <br>0.38   </td>
+    <td class="tg-0pky">   <br>0.38   </td>
+    <td class="tg-0pky">   <br>-1.41%   </td>
+    <td class="tg-0pky">   <br>61.8%   </td>
+    <td class="tg-0pky">   <br>58.71%   </td>
+    <td class="tg-0pky">   <br>-5.26%   </td>
+    <td class="tg-0pky">   <br>23.00   </td>
+    <td class="tg-0pky">   <br>21.58   </td>
+    <td class="tg-0pky">   <br>-6.59%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>BWBS   </td>
+    <td class="tg-0pky">   <br>0.37   </td>
+    <td class="tg-0pky">   <br>0.38   </td>
+    <td class="tg-0pky">   <br>2.62%   </td>
+    <td class="tg-0pky">   <br>67.18%   </td>
+    <td class="tg-0pky">   <br>64.72%   </td>
+    <td class="tg-0pky">   <br>-3.8%   </td>
+    <td class="tg-0pky">   <br>15.83   </td>
+    <td class="tg-0pky">   <br>15.69   </td>
+    <td class="tg-0pky">   <br>-0.9%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>CDF   </td>
+    <td class="tg-0pky">   <br>0.31   </td>
+    <td class="tg-0pky">   <br>0.33   </td>
+    <td class="tg-0pky">   <br>6.35%   </td>
+    <td class="tg-0pky">   <br>89.38%   </td>
+    <td class="tg-0pky">   <br>83.69%   </td>
+    <td class="tg-0pky">   <br>-6.79%   </td>
+    <td class="tg-0pky">   <br>27.35   </td>
+    <td class="tg-0pky">   <br>26.58   </td>
+    <td class="tg-0pky">   <br>-2.89%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>CMA   </td>
+    <td class="tg-0pky">   <br>0.38   </td>
+    <td class="tg-0pky">   <br>0.39   </td>
+    <td class="tg-0pky">   <br>1.63%   </td>
+    <td class="tg-0pky">   <br>62.65%   </td>
+    <td class="tg-0pky">   <br>64.01%   </td>
+    <td class="tg-0pky">   <br>2.13%   </td>
+    <td class="tg-0pky">   <br>19.91   </td>
+    <td class="tg-0pky">   <br>20.01   </td>
+    <td class="tg-0pky">   <br>0.48%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>CWH   </td>
+    <td class="tg-0pky">   <br>0.34   </td>
+    <td class="tg-0pky">   <br>0.33   </td>
+    <td class="tg-0pky">   <br>-3.83%   </td>
+    <td class="tg-0pky">   <br>83.94%   </td>
+    <td class="tg-0pky">   <br>85.26%   </td>
+    <td class="tg-0pky">   <br>1.55%   </td>
+    <td class="tg-0pky">   <br>21.58   </td>
+    <td class="tg-0pky">   <br>22.34   </td>
+    <td class="tg-0pky">   <br>3.4%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>ESSF   </td>
+    <td class="tg-0pky">   <br>0.37   </td>
+    <td class="tg-0pky">   <br>0.37   </td>
+    <td class="tg-0pky">   <br>0.34%   </td>
+    <td class="tg-0pky">   <br>61.7%   </td>
+    <td class="tg-0pky">   <br>64.97%   </td>
+    <td class="tg-0pky">   <br>5.04%   </td>
+    <td class="tg-0pky">   <br>18.90   </td>
+    <td class="tg-0pky">   <br>18.91   </td>
+    <td class="tg-0pky">   <br>0.07%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>ICH   </td>
+    <td class="tg-0pky">   <br>0.36   </td>
+    <td class="tg-0pky">   <br>0.36   </td>
+    <td class="tg-0pky">   <br>-1.75%   </td>
+    <td class="tg-0pky">   <br>81.24%   </td>
+    <td class="tg-0pky">   <br>83.52%   </td>
+    <td class="tg-0pky">   <br>2.73%   </td>
+    <td class="tg-0pky">   <br>22.39   </td>
+    <td class="tg-0pky">   <br>22.18   </td>
+    <td class="tg-0pky">   <br>-0.98%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>IDF   </td>
+    <td class="tg-0pky">   <br>0.36   </td>
+    <td class="tg-0pky">   <br>0.36   </td>
+    <td class="tg-0pky">   <br>-0.3%   </td>
+    <td class="tg-0pky">   <br>67.42%   </td>
+    <td class="tg-0pky">   <br>67.9%   </td>
+    <td class="tg-0pky">   <br>0.71%   </td>
+    <td class="tg-0pky">   <br>21.98   </td>
+    <td class="tg-0pky">   <br>22.49   </td>
+    <td class="tg-0pky">   <br>2.29%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>IMA   </td>
+    <td class="tg-0pky">   <br>0.38   </td>
+    <td class="tg-0pky">   <br>0.36   </td>
+    <td class="tg-0pky">   <br>-3.72%   </td>
+    <td class="tg-0pky">   <br>68.17%   </td>
+    <td class="tg-0pky">   <br>62.07%   </td>
+    <td class="tg-0pky">   <br>-9.83%   </td>
+    <td class="tg-0pky">   <br>22.53   </td>
+    <td class="tg-0pky">   <br>21.06   </td>
+    <td class="tg-0pky">   <br>-6.98%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>MH   </td>
+    <td class="tg-0pky">   <br>0.36   </td>
+    <td class="tg-0pky">   <br>0.36   </td>
+    <td class="tg-0pky">   <br>0.25%   </td>
+    <td class="tg-0pky">   <br>76.87%   </td>
+    <td class="tg-0pky">   <br>77.85%   </td>
+    <td class="tg-0pky">   <br>1.26%   </td>
+    <td class="tg-0pky">   <br>19.42   </td>
+    <td class="tg-0pky">   <br>18.31   </td>
+    <td class="tg-0pky">   <br>-6.07%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>MS   </td>
+    <td class="tg-0pky">   <br>0.35   </td>
+    <td class="tg-0pky">   <br>0.35   </td>
+    <td class="tg-0pky">   <br>0.31%   </td>
+    <td class="tg-0pky">   <br>57.99%   </td>
+    <td class="tg-0pky">   <br>60.41%   </td>
+    <td class="tg-0pky">   <br>4.01%   </td>
+    <td class="tg-0pky">   <br>20.64   </td>
+    <td class="tg-0pky">   <br>20.86   </td>
+    <td class="tg-0pky">   <br>1.04%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>PP   </td>
+    <td class="tg-0pky">   <br>0.36   </td>
+    <td class="tg-0pky">   <br>0.37   </td>
+    <td class="tg-0pky">   <br>0.25%   </td>
+    <td class="tg-0pky">   <br>57.92%   </td>
+    <td class="tg-0pky">   <br>48.93%   </td>
+    <td class="tg-0pky">   <br>-18.36%   </td>
+    <td class="tg-0pky">   <br>19.88   </td>
+    <td class="tg-0pky">   <br>18.03   </td>
+    <td class="tg-0pky">   <br>-10.24%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>SBPS   </td>
+    <td class="tg-0pky">   <br>0.36   </td>
+    <td class="tg-0pky">   <br>0.35   </td>
+    <td class="tg-0pky">   <br>-1.97%   </td>
+    <td class="tg-0pky">   <br>32.98%   </td>
+    <td class="tg-0pky">   <br>34.63%   </td>
+    <td class="tg-0pky">   <br>4.76%   </td>
+    <td class="tg-0pky">   <br>18.00   </td>
+    <td class="tg-0pky">   <br>18.70   </td>
+    <td class="tg-0pky">   <br>3.75%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>SBS   </td>
+    <td class="tg-0pky">   <br>0.37   </td>
+    <td class="tg-0pky">   <br>0.37   </td>
+    <td class="tg-0pky">   <br>-0.4%   </td>
+    <td class="tg-0pky">   <br>62.24%   </td>
+    <td class="tg-0pky">   <br>67.25%   </td>
+    <td class="tg-0pky">   <br>7.45%   </td>
+    <td class="tg-0pky">   <br>18.51   </td>
+    <td class="tg-0pky">   <br>18.67   </td>
+    <td class="tg-0pky">   <br>0.82%   </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">   <br>SWB   </td>
+    <td class="tg-0pky">   <br>0.39   </td>
+    <td class="tg-0pky">   <br>0.39   </td>
+    <td class="tg-0pky">   <br>-1.22%   </td>
+    <td class="tg-0pky">   <br>56.67%   </td>
+    <td class="tg-0pky">   <br>57.71%   </td>
+    <td class="tg-0pky">   <br>1.8%   </td>
+    <td class="tg-0pky">   <br>13.78   </td>
+    <td class="tg-0pky">   <br>13.67   </td>
+    <td class="tg-0pky">   <br>-0.83%   </td>
+  </tr>
+</tbody>
+</table>
+
+: Mean values of forest structural attributes in protected areas (PA), unprotected areas (UA), as well as the percent difference between the means. Zones with more than a 5% difference are bolded. {#tbl:vector-table}
 
 ![Z-Scores of forest structural attributes in PA, UA, and their differences across BEC zones in BC.](figures/fstruct_zscores.png){#fig:structure-3d-scatter}
 
@@ -111,13 +365,13 @@ The recent global availability of freely available, open-source, consistent, and
 
 Internationally, biodiversity preservation targets aim to protect a proportion of the total terrestrial area [@cbd2010]. Frequently, new protected areas are placed in high-elevation, low-productivity ecosystems both globally [@venter2014; @joppa2009; @venter2018], and in BC, as confirmed by our analysis of ecosystem (@fig:bec-conch) and land cover (@fig:vlce-conch) proportions. Alpine ecosystems are more commonly protected (@fig:bec-conch), as are the land covers commonly present within them (rock/rubble, snow/ice, exposed/barren land; @fig:vlce-conch). As elevation increases, these ecosystems and land covers begin to dominate the proportional representation (see @fig:bec-elev and @fig:lcc-elev). Differences between elevation profiles in land cover classes and BEC zones were also found, with the starkest difference being that wetland classes were found at lower elevations in PA (@fig:elev-boxplots)
 
-In high elevation ecosystems, Boreal Altai Fescue Alpine dominates the PA proportions above 3000m, replacing the Coastal Mountain-Heather Alpine ecosystem found in UA (@fig:bec-elev). These zones were both protected at rates above the average (@fig:bec-conch), and above the Aichi biodiversity targets. Interior mountain-heather alpine had large differences in canopy cover and canopy height, while Boreal Altai Fescue Alpine only showed large differences in height. The Coastal Mountain-heather Alpine did not any have large forest structural attribute differences (Table 2).
+In high elevation ecosystems, Boreal Altai Fescue Alpine dominates the PA proportions above 3000m, replacing the Coastal Mountain-Heather Alpine ecosystem found in UA (@fig:bec-elev). These zones were both protected at rates above the average (@fig:bec-conch), and above the Aichi biodiversity targets. Interior mountain-heather alpine had large differences in canopy cover and canopy height, while Boreal Altai Fescue Alpine only showed large differences in height. The Coastal Mountain-heather Alpine did not any have large forest structural attribute differences (@tbl:vector-table).
 
 Distribution of disturbances followed a similar pattern to that reported by @boltonUncoveringRegionalVariability2019. Thus, the area affected by wildfires is comparable between PA and UA and at mid latitudes (51-53°N), while harvesting activity is more prevalent in UA and at low latitudes (@fig:lat-dist).
 
 Our analysis shows that the majority of structural attributes were significantly different between the protected and unprotected forest stands across BEC subzones (@fig:t-test-plot). In the south, Coastal Douglas-fir, a zone with a single subzone, had the large variation between PA and UA in two of four forest structural attributes examined. The unprotected forests were significantly less tall, had significantly less canopy cover, and significantly higher elevation covariance (vertical forest structure; @fig:structure-3d-scatter). In addition, it was the least protected BEC zone by area, with only 4.9% of the total terrestrial area protected. In this specific BEC zone, not only does additional area need to be protected to meet national goals, different forest structures need to be included in new protected areas [@paillet2010].
 
-Utilizing this information on the proportion of BEC zones protected (@fig:bec-conch), as well as their forest structural attributes (Table 2), it is possible to identify which forest structures need to be added to the PA network in BC. Those BEC zones with large differences (identified as being \>5% change from PA to UA) suggest additional protection is needed to encapsulate these underrepresented forest structures. For example: the forests in the Bunchgrass zone have large differences in both canopy cover and canopy height, with the PA having larger values in both attributes (Table 2). New PA in this BEC zone should contain forests with shorter and more open forests. A future avenue of research could be to incorporate forest structural attributes into spatially optimized PA placement approaches [@christensen2009].
+Utilizing this information on the proportion of BEC zones protected (@fig:bec-conch), as well as their forest structural attributes (@tbl:vector-table), it is possible to identify which forest structures need to be added to the PA network in BC. Those BEC zones with large differences (identified as being \>5% change from PA to UA) suggest additional protection is needed to encapsulate these underrepresented forest structures. For example: the forests in the Bunchgrass zone have large differences in both canopy cover and canopy height, with the PA having larger values in both attributes (@tbl:vector-table). New PA in this BEC zone should contain forests with shorter and more open forests. A future avenue of research could be to incorporate forest structural attributes into spatially optimized PA placement approaches [@christensen2009].
 
 The advent of free and open-source global datasets can allow for the monitoring of protected area health across the globe [@nagendraRemoteSensingConservation2013]. Analyzing large amounts of free and open-source data using open-source software approaches offers previously unseen perspectives into protected area representativeness. There are some challenges associated with this, namely: optical imagery archives being scarce in some regions due to imagery acquisition policies [@wulder2016], clouds and atmospheric interference, lack of aerial lidar data available, and varying hierarchies of land cover classifications in differing regions. New data and satellite missions are being introduced that can meet these challenges at a spatial resolution of 30 m or less such as Landsat-9 and Sentinel-2, as well as spaceborne lidar such as GEDI [@dubayahGlobalEcosystemDynamics2020] and ICESat-2 [@neuenschwander2020], which can provide global coverage of various forest structural attributes [@potapovMappingGlobalForest2021] through similar imputation methods to @matasciThreeDecadesForest2018, global land cover maps [@potapovLandsatAnalysisReady2020; @zanagadaniele2021], and forest disturbance maps [@hansenHighResolutionGlobalMaps2013]. These novel datasets provide clear opportunities for regional to global analyses of PA vs UA to be conducted concerning forest structure.
 
