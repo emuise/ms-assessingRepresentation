@@ -27,7 +27,7 @@ The province of British Columbia, Canada, covers 94.4 million ha, of which appro
 
 Both the BC [@bcparks2012] and Canada-wide [@governmentofcanada2019] PA mandates commit to conserving ecological integrity across the network. The PA network in BC is designed to serve both ecological conservation and human recreation aims [@bcparks2012] and consists of a network of PA and PA complexes (multiple nearby PA which share the same conservation goals), with large variations in size, ranging from 0.02 to 987,899 ha (@fig:study-area).
 
-![Figure 1: Terrestrial British Columbia including BEC zones and the location of PA selected in this study.](figures/bec_map.png){#fig:study-area}
+![Terrestrial British Columbia including BEC zones and the location of PA selected in this study.](figures/bec_map.png){#fig:study-area}
 
 ## Data
 
@@ -51,7 +51,7 @@ Wall-to-wall, 30-m forest structure metrics (i.e., Lorey's height, total abovegr
 
 Forest cover classes (deciduous, broadleaf, mixed-wood, and wetland-treed) were used to generate land cover masks to restrict the comparison of forest structural attributes to treed pixels. Pixels with harvest activity disturbances detected post-1985 were also removed from forest structural attribute rasters in both PA and UA, in order to restrict analysis to non-anthropogenically disturbed areas. All datasets are displayed in @fig:data-fig.
 
-![Figure 2: Visualizations for all layers included in the analysis for Garibaldi Park and surrounding region (red outline) in BC for 2015.](figures/data_map.png){#fig:data-fig}
+![Visualizations for all layers included in the analysis for Garibaldi Park and surrounding region (red outline) in BC for 2015.](figures/data_map.png){#fig:data-fig}
 
 ## Analysis
 
@@ -73,37 +73,37 @@ T-tests for PA vs UA were conducted on all pixels selected for analysis by BEC s
 
 British Columbia's ecosystems are protected at varying rates across the province (@fig:bec-conch). Of the 16 ecosystems present in BC, seven are protected at rates above the Aichi biodiversity target (17%). Only two zones (Boreal Altai Fescue Alpine and Interior Mountain-heather Alpine) are currently protected at rates above the Canadian 2025 protection targets (25%). Zones with Douglas-fir (*Pseudotsuga menziesii*) as dominant old-growth components (Coastal Douglas-fir and Interior Douglas-fir) are the least proportionally represented zones in British Columbia, with 4.9% and 6.4% protected, respectively (@fig:bec-conch).
 
-![Figure 3: Areal proportion of biogeoclimatic ecosystem classification (BEC) zones protected in British Columbia (See Table 1 for full BEC zone names).](figures/bec_bar.png){#fig:bec-conch}
+![Areal proportion of biogeoclimatic ecosystem classification (BEC) zones protected in British Columbia (See Table 1 for full BEC zone names).](figures/bec_bar.png){#fig:bec-conch}
 
 As elevation increases in BC, increasing terrestrial area is protected within the PA network until \~4000m, upon which all terrestrial area is protected (@fig:bec-elev). When comparing between PA and UA, zones are protected at differing proportions. Zones commonly found at high elevations, such as the Boreal Altai Fescue Alpine, are predominantly located in protected areas, however, little terrestrial area is found at these elevations. In low elevations, proportions of area protected also differ, with Coastal Western Hemlock having a large proportion of coverage in PA, while in UA, Boreal Black and White Spruce are underrepresented. Generally, the remaining ecosystems are found at similar rates in both PA and UA (@fig:bec-elev).
 
-![Figure 4: Histogram of area protected in British Columbia by Elevation (a). Proportion of Biogeoclimatic Ecosystem Classification (BEC) zone by elevation for both protected areas (b), and unprotected areas (c). Histogram of area unprotected in British Columbia by Elevation (d).](figures/bec_elev_hist.png){#fig:bec-elev}
+![Histogram of area protected in British Columbia by Elevation (a). Proportion of Biogeoclimatic Ecosystem Classification (BEC) zone by elevation for both protected areas (b), and unprotected areas (c). Histogram of area unprotected in British Columbia by Elevation (d).](figures/bec_elev_hist.png){#fig:bec-elev}
 
 Protected land cover also varies by proportion (@fig:vlce-conch). Non-vegetated classes of snow/ice, exposed/barren land, and rock/rubble have higher than average proportions protected while mixed wood and broadleaf land cover classes are underrepresented. All other classes are found at rates similar to the overall proportion of the province protected (\~15%; @fig:vlce-conch).
 
-![Figure 5: Areal proportion of land cover classes protected in BC.](figures/vlce_bar.png){#fig:vlce-conch}
+![Areal proportion of land cover classes protected in BC.](figures/vlce_bar.png){#fig:vlce-conch}
 
 Similar to BEC zones (@fig:bec-elev), land cover also varies with elevation (@fig:lcc-elev). Expectedly, snow/ice make up a large proportion of PA at higher elevations. At lower elevations in UA, mixed wood forest is a more common forest type than in PA, while wetland classes (wetland, wetland-treed) are less frequent in the 400-900m elevation range in UA compared to PA.
 
-![Figure 6: Histogram of area protected in British Columbia by Elevation (a) Proportion of land cover by elevation for both protected areas (b), and unprotected areas (c). Histogram of area unprotected in British Columbia by Elevation (d).](figures/lcc_elev_hist.png){#fig:lcc-elev}
+![Histogram of area protected in British Columbia by Elevation (a) Proportion of land cover by elevation for both protected areas (b), and unprotected areas (c). Histogram of area unprotected in British Columbia by Elevation (d).](figures/lcc_elev_hist.png){#fig:lcc-elev}
 
 Examining the elevation distributions of BEC zones and land cover classes shows elevation variation in some classes and ecosystems (@fig:elev-boxplots). Generally, BEC zones are found at similar elevation profiles in both PA and UA. Alpine BEC zones (Interior Mountain-heather Alpine, Boreal Altai Fescue Alpine, and Coastal Mountain-heather Alpine) are found at similar elevations across PA and UA, while other zones such as Sub-Boreal Pine -- Spruce, Ponderosa Pine, and Bunchgrass vary in their elevation profiles. Land cover classes show differences in the wetland, wetland-treed, and mixed wood classes. The wetland classes are found at lower elevations in PA than UA, while the mixed wood class has more variation in PA.
 
-![Figure 7: Elevation boxplots for BEC zones (a), and land cover classes (b). Whiskers indicate first quartile minus the interquartile range and third quartile to the interquartile range. Box and interior vertical line indicate first quartile, median, and third quartile, respectively.](figures/elev_boxplots.png){#fig:elev-boxplots}
+![Elevation boxplots for BEC zones (a), and land cover classes (b). Whiskers indicate first quartile minus the interquartile range and third quartile to the interquartile range. Box and interior vertical line indicate first quartile, median, and third quartile, respectively.](figures/elev_boxplots.png){#fig:elev-boxplots}
 
 Overall, the burned area of forested cells is similar between PA (2.5% overall) and UA (2.3%), while harvesting is much higher in UA (7.2%) than in PA (0.33%). Harvesting is more common at lower latitudes in UA than at higher latitudes. Fire shows similar, but not identical patterns across varying latitudes, with higher wildfire proportions at high latitudes and between 51-53°N (@fig:lat-dist).
 
-![Figure 8: Proportion of area disturbed by latitude from 1984 to 2019 in protected areas (a), and unprotected areas (b). Proportion of terrestrial area that is protected at each latitude (c).](figures/latitude_disturbance_plot.png){#fig:lat-dist}
+![Proportion of area disturbed by latitude from 1984 to 2019 in protected areas (a), and unprotected areas (b). Proportion of terrestrial area that is protected at each latitude (c).](figures/latitude_disturbance_plot.png){#fig:lat-dist}
 
 ### Forest Structural Attributes
 
 @fig:t-test-plot shows the subzonal proportional significance (*p \< 0.01*) grouped by ecosystem for the 496 comparisons of forest structural variables. Higher percentages confirm ecosystems which had increased number of dissimilar subzones for the specific indicator, and shows that at least half of all subzones in each ecosystem are significantly different (the exception being Ponderosa Pine, which consists of a single subzone that is not significantly different in canopy structure). Median proportional significance values for canopy height, canopy cover, and aboveground biomass are universally significantly different between PA and UA within the same ecosystem.
 
-![Figure 9: Boxplot of proportion of ecosystem subzone which have significant p-values from a two-tailed t-test with the Bonferroni correction (n = 496) applied at a significance level of 0.05. Boxplot vertical lines indicate the first quartile, the median, and the third quartile. The whisker extends from the first quartile to the smallest value no further than 1.5 * interquartile range from the first quartile.](figures/t_tests_scatter.png){#fig:t-test-plot}
+![Boxplot of proportion of ecosystem subzone which have significant p-values from a two-tailed t-test with the Bonferroni correction (n = 496) applied at a significance level of 0.05. Boxplot vertical lines indicate the first quartile, the median, and the third quartile. The whisker extends from the first quartile to the smallest value no further than 1.5 * interquartile range from the first quartile.](figures/t_tests_scatter.png){#fig:t-test-plot}
 
 Forest structural attributes vary between PA and UA in BC (@fig:structure-3d-scatter). The largest differences between PA and UA are found in canopy structure in the Coastal Douglas-fir BEC zone, with the protected area having much higher canopy structure values. As shown in @fig:t-test-plot, forests are commonly significantly different when comparing PA vs UA across all attributes. When examining the forests on an BEC zone level, only one BEC zone has a \>5% difference in vertical forest structure (co-efficient of variation in vegetation returns), six BEC zones have \>5% difference in canopy cover, and five BEC zones have a \>5% difference in canopy height. Ponderosa pine has large differences in canopy cover and canopy height (\>5%), but minor differences in elevation covariance (only 0.25%; Table 2). PA in the Ponderosa Pine, Interior Mountain Heather Alpine, and Coastal Douglas-fir have more aboveground biomass than in UA in corresponding areas (@fig:structure-3d-scatter).
 
-![Figure 10: Z-Scores of forest structural attributes in PA, UA, and their differences across BEC zones in BC.](figures/fstruct_zscores.png){#fig:structure-3d-scatter}
+![Z-Scores of forest structural attributes in PA, UA, and their differences across BEC zones in BC.](figures/fstruct_zscores.png){#fig:structure-3d-scatter}
 
 # Discussion
 
