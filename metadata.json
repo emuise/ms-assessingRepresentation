@@ -3,44 +3,47 @@
   "authors": [
     {
       "affiliations": [
-        "Université de Montréal",
-        "Québec Centre for Biodiversity Sciences"
+        "Department of Forest Resources Management, University of British Columbia"
       ],
-      "familyname": "Poisot",
-      "givennames": "Timothée",
-      "email": "timothee.poisot@umontreal.ca",
-      "orcid": "0000-0002-0735-5184",
-      "status": ["corresponding", "equal"]
+      "familyname": "Muise",
+      "givennames": "Evan, R.",
+      "email": "evanmuis@student.ubc.ca",
+      "orcid": "0000-0003-3404-3220",
+      "status": ["corresponding"]
     },
     {
       "affiliations": [
-        "Inn of the Prancing Pony",
-        "Fellowship of the Ring"
+        "Department of Forest Resources Management, University of British Columbia"
       ],
-      "familyname": "Took",
-      "givennames": "Peregrin",
-      "email": "pippin@took.shire"
+      "familyname": "Coops",
+      "givennames": "Nicholas, C.",
+      "email": "nicholas.coops@ubc.ca"
     },
     {
       "affiliations": [
-        "Green Dragon Inn",
-        "Fellowship of the Ring"
+        "Canadian Forest Service (Pacific Forestry Centre)"
       ],
-      "familyname": "Brandybuck",
-      "givennames": "Merriadoc",
-      "email": "merry@fellowship.ring",
-      "status": ["equal"]
+      "familyname": "Hermosilla",
+      "givennames": "Txomin",
+      "email": "txomin.hermosillagomez@NRCan-RNCan.gc.ca"
+    },
+    {
+      "affiliations": [
+        "BC Parks, Ministry of Environment and Climate Change Strategy"
+      ],
+      "familyname": "Ban",
+      "givennames": "Stephen, S."
     }
   ],
-  "abstract": {
-    "Purpose": "This template provides a series of scripts to render a markdown document into an interactive website and a series of PDFs.",
-    "Motivation": "It makes collaborating on text with GitHub easier, and means that we never need to think about the output.",
-    "Internals": "GitHub actions and a series of python scritpts. The markdown is handled with `pandoc`."
-  },
+  "abstract": 
+    "Protected areas (PA) are an effective means of conserving biodiversity and protecting suites of valuable ecosystem services. Currently, many nations and international governments use proportional area protected as a critical metric for assessing progress towards biodiversity conservation. However, this and other common metrics do not assess the effectiveness of PA networks, nor do they assess how representative PA are of the ecosystems they aim to protect. Topography, stand structure, and land cover are all key drivers of biodiversity within forest environments, and are well suited as indicators to assess the representation of PA. Here we examine the protected area network in British Columbia, Canada, through these drivers derived from freely available data and remote sensing products across the provincial biogeoclimatic ecosystem classification system. We examine biases in the protected area network by elevation, forest disturbances, and forest structural attributes, including height, cover, and biomass by comparing a random sample of protected and unprotected pixels. Results indicate that PA are commonly biased towards high elevation and alpine land covers, and that forest structural attributes of the park network are often significantly different in protected vs unprotected areas (426 out of 496 forest structural attributes found to be different; p < 0.01). Analysis of forest structural attributes suggests that establishing additional PA could ensure representation of various forest structure regimes across British Columbia’s ecosystems. We conclude that these approaches using free and open remote sensing data are highly transferable, and can be accomplished using consistent datasets to assess PA representations globally.",
   "keywords": [
-    "pandoc",
-    "pandoc-crossref",
-    "github actions"
+    "Protected Areas",
+    "Remote Sensing",
+    "Forest Structure",
+    "Forest Disturbances",
+    "Land Cover",
+    "Ecological Classifications"
   ],
-  "citationstyle": "ecology-letters"
+  "citationstyle": "ecology"
 }
