@@ -103,3 +103,13 @@ value no further than 1.5 * interquartile range from the first
 quartile.}\label{fig:t-test-plot}
 }
 \end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\hypertarget{fig:structure-3d-scatter}{%
+\centering
+\includegraphics{figures/fstruct_zscores.png}
+\caption{Z-Scores of forest structural attributes in PA, UA, and their
+differences across BEC zones in BC.}\label{fig:structure-3d-scatter}
+}
+\end{figure}
