@@ -44,7 +44,7 @@ The province of British Columbia, Canada, covers 94.4 million ha, of which appro
 |     SBS     |     Sub-Boreal Spruce                    |     11        |     10,337,497    |     6.7%     |
 |     SWB     |     Spruce -- Willow -- Birch            |     6         |     8,655,855     |     23.3%    |
 
-: Number of subzones, total area, and percent protected by BEC Zone. {#tbl:bec-table}
+: Number of subzones, total area, and percent protected by BEC Zone.{#tbl:bec-table}
 
 Both the BC [@bcparks2012] and Canada-wide [@governmentofcanada2019] PA mandates commit to conserving ecological integrity across the network. The PA network in BC is designed to serve both ecological conservation and human recreation aims [@bcparks2012] and consists of a network of PA and PA complexes (multiple nearby PA which share the same conservation goals), with large variations in size, ranging from 0.02 to 987,899 ha (@fig:study-area).
 
@@ -144,7 +144,7 @@ Forest structural attributes vary between PA and UA in BC (@fig:structure-3d-sca
 |       SBS     |              0.37             |              0.37             |              -0.4%            |     **    62.24%   **     |     **    67.25%   **     |      **    7.45%   **     |            18.51           |            18.67           |            0.82%           |
 |       SWB     |              0.39             |              0.39             |             -1.22%            |           56.67%          |           57.71%          |            1.8%           |            13.78           |            13.67           |            -0.83%          |
 
-: Mean values of forest structural attributes in protected areas (PA), unprotected areas (UA), as well as the percent difference between the means. Zones with more than a 5% difference are bolded. {#tbl:vector-table}
+: Mean values of forest structural attributes in protected areas (PA), unprotected areas (UA), as well as the percent difference between the means. Zones with more than a 5% difference are bolded.{#tbl:vector-table}
 
 ![Z-Scores of forest structural attributes in PA, UA, and their differences across BEC zones in BC.](figures/fstruct_zscores.png){#fig:structure-3d-scatter}
 
